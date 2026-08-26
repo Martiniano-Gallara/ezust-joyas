@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catálogo de Alta Distinción | EZUST JOYAS · Plata 925 & Oro 18K</title>
+
+  <!-- SEO & Meta Tags -->
+  <meta name="description"
+    content="Explorá el catálogo oficial de Ezust Joyas. Gargantillas, pulseras, anillos solitarios y aros pasantes en Plata 925 y Oro 18K. 6 cuotas sin interés y envíos a todo el país.">
+  <meta name="keywords"
+    content="catalogo ezust joyas, collares plata 925, pulseras cristales, anillos solitarios, aros perlas cultivadas, alta joyeria arroyito">
+  <meta name="author" content="EZUST JOYAS">
+  <meta name="theme-color" content="#0E0D0C">
+
+  <!-- Open Graph / Social -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Catálogo de Alta Distinción | EZUST JOYAS">
+  <meta property="og:description"
+    content="Colección completa de joyas de autor en Plata 925 y Oro 18K. 6 cuotas sin interés y envíos asegurados a todo el país.">
+  <meta property="og:image" content="assets/products_hq/ez-real-01_main.jpg">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/svg+xml" href="assets/logo-symbol.svg">
+</head>
+
+<body class="catalog-page-body">
+
+  <!-- Sticky Luxury Floating Header -->
+  <header class="site-header scrolled" id="siteHeader">
+    <div class="header-inner container-fluid">
+
+      <!-- Header Left: Logo -->
+      <div class="header-logo-area">
+        <a href="index.html" aria-label="EZUST JOYAS Inicio" class="header-logo-link">
+          <img src="assets/logo-official-white.png" alt="EZUST JOYAS" class="header-logo-img" width="140" height="48">
+        </a>
+      </div>
+
+      <!-- Header Center: Minimalist Inline Navigation -->
+      <nav class="header-nav-center" aria-label="Navegación principal">
+        <ul class="nav-links-editorial">
+          <li><a href="index.html" class="nav-editorial-link">INICIO</a></li>
+          <li class="nav-dot">/</li>
+          <li><a href="catalogo.html" class="nav-editorial-link active">CATÁLOGO</a></li>
+          <li class="nav-dot">/</li>
+          <li><a href="contacto.html" class="nav-editorial-link">INFORMACIÓN & CONTACTO</a></li>
+        </ul>
+      </nav>
+
+      <!-- Header Right: Currency & Action Icons -->
+      <div class="header-actions-right">
+
+        <!-- Luxury Custom Currency Selector -->
+        <div class="custom-currency-dropdown" id="currencyDropdown">
+          <button class="currency-trigger-btn" id="currencyTrigger" type="button" aria-haspopup="true"
+            aria-expanded="false" aria-label="Seleccionar Moneda">
+            <span class="curr-selected-code" id="currentCurrencyLabel">ARS</span>
+            <svg class="curr-arrow" width="9" height="5" viewBox="0 0 10 6" fill="none" stroke="currentColor"
+              stroke-width="1.6" stroke-linecap="round">
+              <path d="M1 1L5 5L9 1" />
+            </svg>
+          </button>
+          <div class="currency-dropdown-menu" id="currencyMenu">
+            <button type="button" class="currency-menu-item active" data-currency="ARS">
+              <span class="currency-item-code">ARS</span>
+              <span class="currency-item-name">Pesos ($)</span>
+              <span class="currency-item-dot">✦</span>
+            </button>
+            <button type="button" class="currency-menu-item" data-currency="USD">
+              <span class="currency-item-code">USD</span>
+              <span class="currency-item-name">Dólares ($)</span>
+              <span class="currency-item-dot">✦</span>
+            </button>
+            <button type="button" class="currency-menu-item" data-currency="EUR">
+              <span class="currency-item-code">EUR</span>
+              <span class="currency-item-name">Euros (€)</span>
+              <span class="currency-item-dot">✦</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Header Inline Search Box -->
+        <div class="header-search-wrap" id="headerSearchWrap">
+          <button class="header-icon-fine" id="searchBtn" title="Buscar Joyas" aria-label="Buscar">
+            <svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.4" viewBox="0 0 24 24">
+              <circle cx="11" cy="11" r="7.5"></circle>
+              <line x1="21" y1="21" x2="16.5" y2="16.5"></line>
+            </svg>
+          </button>
+          <div class="header-search-input-box" id="headerSearchInputBox">
+            <input type="text" id="headerSearchInput" class="header-search-field" placeholder="Buscar collares, anillos, perlas..." autocomplete="off">
+            <button type="button" class="header-search-close" id="headerSearchCloseBtn">✕</button>
+          </div>
+          <!-- Live Floating Search Results Dropdown -->
+          <div class="header-search-results-dropdown" id="headerSearchResults"></div>
+        </div>
+
+        <!-- Wishlist Icon -->
+        <button class="header-icon-fine" id="wishlistBtn" title="Mis Favoritos" aria-label="Favoritos">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.2" viewBox="0 0 24 24">
+            <path
+              d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z">
+            </path>
+          </svg>
+          <span class="badge-count-fine" id="wishlistCount">0</span>
+        </button>
+
+        <!-- Bag / Cart Icon -->
+        <button class="header-icon-fine" id="cartBtn" title="Bolsa de Compras" aria-label="Carrito de compras">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.2" viewBox="0 0 24 24">
+            <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"></path>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <path d="M16 10a4 4 0 01-8 0"></path>
+          </svg>
+          <span class="badge-count-fine" id="cartCount">0</span>
+        </button>
+
+        <!-- Mobile Menu Toggle -->
+        <button class="header-icon-fine mobile-menu-btn" id="mobileMenuBtn" aria-label="Abrir Menú">
+          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.2" viewBox="0 0 24 24">
+            <line x1="3" y1="7" x2="21" y2="7"></line>
+            <line x1="3" y1="17" x2="21" y2="17"></line>
+          </svg>
+        </button>
+
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Catalog Page Hero Banner -->
+  <section class="catalog-page-hero">
+    <div class="container text-center">
+      <div class="hero-editorial-brand-badge" style="margin-bottom: 1.2rem;">
+        <span class="badge-sparkle">✦</span>
+        <span class="badge-text">COLECCIÓN EZUST</span>
+      </div>
+      <h1 class="catalog-page-title">
+        Catálogo de <em>Alta Distinción</em>
+      </h1>
+      <p class="catalog-page-sub">
+        Joyas de Plata 925, perlas cultivadas, cristales facetados y piedras de corte brillante.
+      </p>
+    </div>
+  </section>
+
+  <!-- Interactive Product Catalog Section -->
+  <main class="catalog-main-area">
+    <div class="container">
+
+      <!-- Filters & Sorting Bar -->
+      <div class="catalog-filters-bar">
+        <div class="filter-categories">
+          <button class="filter-btn active" data-category="all">Todas las Joyas</button>
+          <button class="filter-btn" data-category="anillos">Anillos</button>
+          <button class="filter-btn" data-category="collares">Collares</button>
+          <button class="filter-btn" data-category="pulseras">Pulseras</button>
+          <button class="filter-btn" data-category="aros">Aros</button>
+          <button class="filter-btn" data-category="nupcial">Nupcial</button>
+        </div>
+
+        <div class="catalog-sort-wrap">
+          <span class="sort-label">Ordenar:</span>
+          <select class="sort-select" id="catalogSort" aria-label="Ordenar catálogo">
+            <option value="featured">Destacados Atelier</option>
+            <option value="low-price">Menor a Mayor Precio</option>
+            <option value="high-price">Mayor a Menor Precio</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Dynamic Product Cards Grid -->
+      <div class="products-grid" id="productsGrid">
+        <!-- Injected via app.js -->
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Fullscreen Luxury Sliding Product Canvas (SPA Product Page) -->
+  <div class="fullscreen-product-sheet" id="productFullscreenCanvas" aria-modal="true" role="dialog">
+    <div class="sheet-top-bar">
+      <button class="sheet-back-btn" id="productSheetBackBtn" type="button">
+        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path d="M19 12H5M12 19l-7-7 7-7" />
+        </svg>
+        <span>Volver al Catálogo</span>
+      </button>
+      <div class="sheet-logo-center">
+        <img src="assets/logo-official-gold.png" alt="EZUST JOYAS" height="34">
+      </div>
+      <button class="sheet-close-btn" id="productSheetCloseBtn" type="button" aria-label="Cerrar vista de producto">
+        ✕
+      </button>
+    </div>
+
+    <div class="product-sheet-scroll-body" id="productSheetBody">
+      <!-- Dynamically rendered via renderFullscreenProduct() in app.js -->
+    </div>
+  </div>
+
+  <!-- Slim Minimal Luxury Footer -->
+  <footer class="site-footer-slim">
+    <div class="container">
+      <div class="footer-slim-inner">
+        <div class="footer-slim-copy">
+          © 2026 EZUST JOYAS. Todos los derechos reservados.
+        </div>
+        <div class="footer-slim-dev">
+          Desarrollado por <a href="https://instagram.com/martiniano.web" target="_blank" rel="noopener"
+            class="developer-link">MGH</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp Action Button -->
+  <a href="https://wa.me/5493576415867?text=Hola%20Ezust%20joyas,%20quiero..." target="_blank" rel="noopener"
+    class="floating-whatsapp-btn" aria-label="Contactar por WhatsApp">
+    <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+      <path
+        d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.196 8.196 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24zm-3.53 3.99c-.19 0-.42.07-.64.31-.22.24-.85.83-.85 2.03 0 1.2.88 2.36 1 2.53.13.16 1.72 2.63 4.17 3.69.58.25 1.04.4 1.4.51.59.19 1.12.16 1.54.1.47-.07 1.45-.59 1.65-1.17.21-.57.21-1.06.15-1.17-.06-.1-.23-.17-.48-.29-.25-.13-1.45-.72-1.68-.8-.22-.08-.39-.13-.55.12-.16.25-.63.8-.78.96-.14.16-.29.18-.54.06-.25-.13-1.04-.38-1.98-1.22-.73-.65-1.23-1.46-1.37-1.7-.14-.25-.01-.38.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.55-1.33-.76-1.82-.2-.48-.41-.42-.56-.43l-.48-.01z" />
+    </svg>
+  </a>
+
+  <!-- Slide-Out Shopping Bag Drawer -->
+  <aside class="side-drawer" id="cartDrawer" aria-label="Bolsa de compras">
+    <div class="drawer-header">
+      <h3 class="drawer-title">Bolsa de Compras</h3>
+      <button class="drawer-close-btn" id="cartCloseBtn" aria-label="Cerrar bolsa">✕</button>
+    </div>
+
+    <!-- Shipping Info -->
+    <div class="drawer-shipping-meter">
+      <div class="shipping-meter-text" id="shippingText">
+        <span>✦ Envíos asegurados a todo el país por Andreani y Correo Argentino</span>
+      </div>
+    </div>
+
+    <!-- Items List -->
+    <div class="drawer-body" id="cartItemsContainer">
+      <!-- Injected via app.js -->
+    </div>
+
+    <!-- Drawer Footer -->
+    <div class="drawer-footer">
+      <div class="drawer-subtotal-row">
+        <span class="drawer-subtotal-label">Subtotal estimado:</span>
+        <span class="drawer-subtotal-price" id="cartSubtotal">$ 0</span>
+      </div>
+      <div class="drawer-actions">
+        <a href="#" id="checkoutWhatsappBtn" target="_blank" rel="noopener" class="btn-luxury btn-checkout-whatsapp"
+          style="width: 100%; justify-content: center;">
+          <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
+            <path
+              d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.196 8.196 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24zm-3.53 3.99c-.19 0-.42.07-.64.31-.22.24-.85.83-.85 2.03 0 1.2.88 2.36 1 2.53.13.16 1.72 2.63 4.17 3.69.58.25 1.04.4 1.4.51.59.19 1.12.16 1.54.1.47-.07 1.45-.59 1.65-1.17.21-.57.21-1.06.15-1.17-.06-.1-.23-.17-.48-.29-.25-.13-1.45-.72-1.68-.8-.22-.08-.39-.13-.55.12-.16.25-.63.8-.78.96-.14.16-.29.18-.54.06-.25-.13-1.04-.38-1.98-1.22-.73-.65-1.23-1.46-1.37-1.7-.14-.25-.01-.38.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.55-1.33-.76-1.82-.2-.48-.41-.42-.56-.43l-.48-.01z" />
+          </svg>
+          <span>Ordenar por WhatsApp</span>
+        </a>
+        <button class="btn-luxury btn-primary"
+          onclick="showToast('Procesando Orden', 'Redirigiendo a pasarela segura de pago...');" style="width: 100%;">
+          <span>Iniciar Pago Seguro</span>
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Slide-Out Wishlist Drawer -->
+  <aside class="side-drawer" id="wishlistDrawer" aria-label="Lista de Deseos">
+    <div class="drawer-header">
+      <h3 class="drawer-title">Lista de Deseos</h3>
+      <button class="drawer-close-btn" id="wishlistCloseBtn" aria-label="Cerrar favoritos">✕</button>
+    </div>
+    <div class="drawer-body" id="wishlistItemsContainer">
+      <!-- Injected via app.js -->
+    </div>
+  </aside>
+
+
+
+  <!-- Mobile Navigation Drawer -->
+  <div class="mobile-nav-drawer" id="mobileNavDrawer">
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+      <img src="assets/logo-official-gold.png" alt="Ezust Logo" style="height: 44px; width: auto; object-fit: contain;">
+      <button id="mobileNavClose" style="font-size: 1.5rem; color: var(--text-primary);">✕</button>
+    </div>
+    <div class="mobile-nav-links">
+      <a href="index.html" class="mobile-nav-link"><span>Inicio</span> <span>→</span></a>
+      <a href="catalogo.html" class="mobile-nav-link"><span>Catálogo</span> <span>→</span></a>
+      <a href="contacto.html" class="mobile-nav-link"><span>Información & Contacto</span> <span>→</span></a>
+    </div>
+  </div>
+
+  <!-- Drawer Backdrop Overlay -->
+  <div class="drawer-overlay" id="drawerOverlay"></div>
+
+  <!-- Scripts -->
+  <script src="js/app.js"></script>
+</body>
+
+</html>

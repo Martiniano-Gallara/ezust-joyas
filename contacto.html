@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Información & Contacto | EZUST JOYAS · Atelier Arroyito, Córdoba</title>
+
+  <!-- SEO & Meta Tags -->
+  <meta name="description"
+    content="Información y Contacto de Ezust Joyas. Showroom Atelier en Belgrano 1047, Arroyito, Córdoba. Envíos a todo el país y atención personalizada vía WhatsApp al 3576 41-5867.">
+  <meta name="keywords"
+    content="ezust joyas contacto, showroom joyas arroyito, cordoba joyas, whatsapp ezust, envios joyas argentina, @ezustjoyas">
+  <meta name="author" content="EZUST JOYAS">
+  <meta name="theme-color" content="#0E0D0C">
+
+  <!-- Open Graph / Social -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="EZUST JOYAS | Información & Contacto">
+  <meta property="og:description"
+    content="Visitanos en nuestro Atelier en Belgrano 1047, Arroyito, Córdoba o contactanos vía WhatsApp para asesoría personalizada. Envíos a todo el país.">
+  <meta property="og:image" content="assets/img/hero_luxury_4k.jpg">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/svg+xml" href="assets/logo-symbol.svg">
+</head>
+
+<body class="contact-page-body">
+
+  <!-- Sticky Luxury Floating Header -->
+  <header class="site-header scrolled" id="siteHeader">
+    <div class="header-inner container-fluid">
+
+      <!-- Header Left: Logo -->
+      <div class="header-logo-area">
+        <a href="index.html" aria-label="EZUST JOYAS Inicio" class="header-logo-link">
+          <img src="assets/logo-official-white.png" alt="EZUST JOYAS" class="header-logo-img" width="140" height="48">
+        </a>
+      </div>
+
+      <!-- Header Center: Minimalist Inline Navigation -->
+      <nav class="header-nav-center" aria-label="Navegación principal">
+        <ul class="nav-links-editorial">
+          <li><a href="index.html" class="nav-editorial-link">INICIO</a></li>
+          <li class="nav-dot">/</li>
+          <li><a href="catalogo.html" class="nav-editorial-link">CATÁLOGO</a></li>
+          <li class="nav-dot">/</li>
+          <li><a href="contacto.html" class="nav-editorial-link active">INFORMACIÓN & CONTACTO</a></li>
+        </ul>
+      </nav>
+
+      <!-- Header Right: Currency & Action Icons -->
+      <div class="header-actions-right">
+
+        <!-- Luxury Custom Currency Selector -->
+        <div class="custom-currency-dropdown" id="currencyDropdown">
+          <button class="currency-trigger-btn" id="currencyTrigger" type="button" aria-haspopup="true"
+            aria-expanded="false" aria-label="Seleccionar Moneda">
+            <span class="curr-selected-code" id="currentCurrencyLabel">ARS</span>
+            <svg class="curr-arrow" width="9" height="5" viewBox="0 0 10 6" fill="none" stroke="currentColor"
+              stroke-width="1.6" stroke-linecap="round">
+              <path d="M1 1L5 5L9 1" />
+            </svg>
+          </button>
+          <div class="currency-dropdown-menu" id="currencyMenu">
+            <button type="button" class="currency-menu-item active" data-currency="ARS">
+              <span class="currency-item-code">ARS</span>
+              <span class="currency-item-name">Pesos ($)</span>
+              <span class="currency-item-dot">✦</span>
+            </button>
+            <button type="button" class="currency-menu-item" data-currency="USD">
+              <span class="currency-item-code">USD</span>
+              <span class="currency-item-name">Dólares ($)</span>
+              <span class="currency-item-dot">✦</span>
+            </button>
+            <button type="button" class="currency-menu-item" data-currency="EUR">
+              <span class="currency-item-code">EUR</span>
+              <span class="currency-item-name">Euros (€)</span>
+              <span class="currency-item-dot">✦</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Header Inline Search Box -->
+        <div class="header-search-wrap" id="headerSearchWrap">
+          <button class="header-icon-fine" id="searchBtn" title="Buscar Joyas" aria-label="Buscar">
+            <svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.4" viewBox="0 0 24 24">
+              <circle cx="11" cy="11" r="7.5"></circle>
+              <line x1="21" y1="21" x2="16.5" y2="16.5"></line>
+            </svg>
+          </button>
+          <div class="header-search-input-box" id="headerSearchInputBox">
+            <input type="text" id="headerSearchInput" class="header-search-field"
+              placeholder="Buscar collares, anillos, perlas..." autocomplete="off">
+            <button type="button" class="header-search-close" id="headerSearchCloseBtn">✕</button>
+          </div>
+          <!-- Live Floating Search Results Dropdown -->
+          <div class="header-search-results-dropdown" id="headerSearchResults"></div>
+        </div>
+
+        <!-- Wishlist Icon -->
+        <button class="header-icon-fine" id="wishlistBtn" title="Mis Favoritos" aria-label="Favoritos">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.2" viewBox="0 0 24 24">
+            <path
+              d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z">
+            </path>
+          </svg>
+          <span class="badge-count-fine" id="wishlistCount">0</span>
+        </button>
+
+        <!-- Bag / Cart Icon -->
+        <button class="header-icon-fine" id="cartBtn" title="Bolsa de Compras" aria-label="Carrito de compras">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.2" viewBox="0 0 24 24">
+            <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"></path>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <path d="M16 10a4 4 0 01-8 0"></path>
+          </svg>
+          <span class="badge-count-fine" id="cartCount">0</span>
+        </button>
+
+        <!-- Mobile Menu Toggle -->
+        <button class="header-icon-fine mobile-menu-btn" id="mobileMenuBtn" aria-label="Abrir Menú">
+          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.2" viewBox="0 0 24 24">
+            <line x1="3" y1="7" x2="21" y2="7"></line>
+            <line x1="3" y1="17" x2="21" y2="17"></line>
+          </svg>
+        </button>
+
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Page Banner Section -->
+  <section class="contact-page-hero">
+    <div class="container text-center">
+      <div class="hero-editorial-brand-badge" style="margin-bottom: 1.2rem;">
+        <span class="badge-sparkle">✦</span>
+        <span class="badge-text">ARROYITO, CÓRDOBA</span>
+      </div>
+      <h1 class="contact-page-title">
+        Información & <em>Contacto</em>
+      </h1>
+      <p class="contact-page-sub">
+        Estamos a tu entera disposición para asesorarte en la elección de tu próxima joya, consultas de medidas y envíos
+        asegurados a todo el país.
+      </p>
+    </div>
+  </section>
+
+  <!-- Main Content Grid -->
+  <main class="contact-main-section">
+    <div class="container">
+
+      <!-- 4 Pillars Grid -->
+      <div class="contact-pillars-grid">
+
+        <!-- Card 1: Ubicación -->
+        <div class="contact-card-luxury">
+          <div class="card-icon-gold">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+              <path
+                d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+            </svg>
+          </div>
+          <span class="card-tag">Local Comercial</span>
+          <h3 class="card-title">Belgrano 1047</h3>
+          <p class="card-sub">Arroyito, Córdoba, Argentina</p>
+          <div class="card-hours">
+            <strong>Horarios de Atención:</strong><br>
+            <div style="margin-top: 0.45rem;">
+              <span style="color: var(--gold-light); font-weight: 500;">✦ Lunes y Viernes:</span><br>
+              17:00 a 20:30 hs
+            </div>
+            <div style="margin-top: 0.45rem;">
+              <span style="color: var(--gold-light); font-weight: 500;">✦ Martes a Jueves, y Sábados:</span><br>
+              9:00 a 12:30 hs y 17:00 a 20:30 hs
+            </div>
+          </div>
+          <a href="https://maps.google.com/?q=Belgrano+1047,+Arroyito,+Cordoba" target="_blank" rel="noopener"
+            class="card-action-link">
+            <span>Abrir en Google Maps</span>
+            <span>→</span>
+          </a>
+        </div>
+
+        <!-- Card 2: WhatsApp -->
+        <div class="contact-card-luxury highlight-gold">
+          <div class="card-icon-gold">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.196 8.196 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24zm-3.53 3.99c-.19 0-.42.07-.64.31-.22.24-.85.83-.85 2.03 0 1.2.88 2.36 1 2.53.13.16 1.72 2.63 4.17 3.69.58.25 1.04.4 1.4.51.59.19 1.12.16 1.54.1.47-.07 1.45-.59 1.65-1.17.21-.57.21-1.06.15-1.17-.06-.1-.23-.17-.48-.29-.25-.13-1.45-.72-1.68-.8-.22-.08-.39-.13-.55.12-.16.25-.63.8-.78.96-.14.16-.29.18-.54.06-.25-.13-1.04-.38-1.98-1.22-.73-.65-1.23-1.46-1.37-1.7-.14-.25-.01-.38.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.55-1.33-.76-1.82-.2-.48-.41-.42-.56-.43l-.48-.01z" />
+            </svg>
+          </div>
+          <span class="card-tag">Atención Directa</span>
+          <h3 class="card-title">3576 41-5867</h3>
+          <p class="card-sub">WhatsApp</p>
+          <div class="card-hours">
+            Asesoría personalizada en vivo, pedidos personalizados, reservas y cotizaciones.
+          </div>
+          <a href="https://wa.me/5493576415867?text=Hola%20Ezust%20joyas,%20quiero..." target="_blank" rel="noopener"
+            class="card-action-btn-whatsapp">
+            <span>WhatsApp Directo</span>
+            <span>→</span>
+          </a>
+        </div>
+
+        <!-- Card 3: Envíos Nacionales -->
+        <div class="contact-card-luxury">
+          <div class="card-icon-gold">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+              <rect x="1" y="3" width="15" height="13"></rect>
+              <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+              <circle cx="5.5" cy="18.5" r="2.5"></circle>
+              <circle cx="18.5" cy="18.5" r="2.5"></circle>
+            </svg>
+          </div>
+          <span class="card-tag">Logística Segura</span>
+          <h3 class="card-title">Envíos a todo el país</h3>
+          <p class="card-sub">Cobertura nacional asegurada</p>
+          <div class="card-hours">
+            Despachos diarios por <strong>Andreani y Correo Argentino</strong>.
+          </div>
+          <div class="shipping-badge-pill">
+            ✦ Envíos a todo el país
+          </div>
+        </div>
+
+        <!-- Card 4: Instagram -->
+        <div class="contact-card-luxury">
+          <div class="card-icon-gold">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+            </svg>
+          </div>
+          <span class="card-tag">Seguinos en Redes</span>
+          <h3 class="card-title">@EZUSTJOYAS</h3>
+          <p class="card-sub">Instagram Oficial</p>
+          <div class="card-hours">
+            Seguí nuestras historias, lanzamientos exclusivos de autor y el proceso artesanal del atelier.
+          </div>
+          <a href="https://www.instagram.com/ezustjoyas/" target="_blank" rel="noopener" class="card-action-link">
+            <span>Visitar Instagram</span>
+            <span>→</span>
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Interactive Map & Atelier Section -->
+      <div class="contact-map-block">
+        <div class="map-header-row">
+          <div>
+            <span class="section-tag">Ubicación del Comercio</span>
+            <h2 class="section-title">Encontranos en <em>Arroyito, Córdoba</em></h2>
+            <p style="color: var(--text-secondary); margin-top: 0.5rem; font-size: 0.9rem;">
+              Belgrano 1047, Arroyito, Provincia de Córdoba (X2434).
+            </p>
+          </div>
+          <a href="https://maps.google.com/?q=Belgrano+1047,+Arroyito,+Cordoba" target="_blank" rel="noopener"
+            class="btn-luxury btn-primary">
+            <span>Cómo Llegar (Google Maps)</span>
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </a>
+        </div>
+
+        <div class="map-frame-container">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3408.086558117769!2d-63.056086!3d-31.417244!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9434bf7f0a99ff9d%3A0x7d6a54f15d2a9a4b!2sBelgrano%201047%2C%20Arroyito%2C%20C%C3%B3rdoba!5e0!3m2!1ses-419!2sar!4v1700000000000!5m2!1ses-419!2sar"
+            width="100%" height="460" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Mapa Atelier Ezust Joyas en Belgrano 1047, Arroyito, Córdoba">
+          </iframe>
+        </div>
+      </div>
+
+      <!-- Contact Message Form & Concierge Box -->
+      <div class="contact-form-section">
+        <div class="contact-form-grid">
+
+          <div class="form-info-col">
+            <span class="section-tag">Atención VIP</span>
+            <h2 class="section-title">Envianos tu <em>Consulta</em></h2>
+            <p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 2rem;">
+              ¿Buscás una medida especial, asesoramiento para una fecha conmemorativa o querés consultar disponibilidad
+              de stock? Completá el formulario y nuestro equipo te responderá de forma personalizada.
+            </p>
+
+            <div class="contact-quick-bullets">
+              <div class="bullet-item">
+                <span class="bullet-dot">✦</span>
+                <div>
+                  <strong>Asesoría en Tallas de Anillo:</strong> Te guiamos para elegir la medida exacta sin moverte de
+                  casa.
+                </div>
+              </div>
+              <div class="bullet-item">
+                <span class="bullet-dot">✦</span>
+                <div>
+                  <strong>Packaging para Regalo:</strong> Todas nuestras piezas incluyen estuche de lujo y certificado
+                  de garantía.
+                </div>
+              </div>
+              <div class="bullet-item">
+                <span class="bullet-dot">✦</span>
+                <div>
+                  <strong>Pagos Flexibles:</strong> 3 y 6 cuotas sin interés y 15% OFF abonando por transferencia.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-box-col">
+            <form class="luxury-inquiry-form" id="contactInquiryForm">
+              <div class="form-group">
+                <label for="cName">Nombre Completo *</label>
+                <input type="text" id="cName" class="luxury-input" placeholder="Tu nombre y apellido..." required>
+              </div>
+
+              <div class="form-group">
+                <label for="cSubject">Motivo de Consulta</label>
+                <select id="cSubject" class="luxury-input">
+                  <option value="Asesoramiento en Joyas / Diseños">Asesoramiento en Joyas / Diseños</option>
+                  <option value="Consulta sobre Envíos Nacionales">Consulta sobre Envíos Nacionales</option>
+                  <option value="Guía de Medidas de Anillo">Guía de Medidas de Anillo</option>
+                  <option value="Cita Privada en Showroom Arroyito">Cita Privada en Showroom Arroyito</option>
+                  <option value="Otra Consulta">Otra Consulta</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="cMessage">Mensaje o Detalle de la Joya *</label>
+                <textarea id="cMessage" class="luxury-input" rows="4"
+                  placeholder="Contanos qué joya te interesa o en qué podemos ayudarte..." required></textarea>
+              </div>
+
+              <button type="submit" class="btn-luxury btn-primary"
+                style="width: 100%; justify-content: center; padding: 1rem;">
+                <span>Enviar Consulta por WhatsApp</span>
+                <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.196 8.196 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24zm-3.53 3.99c-.19 0-.42.07-.64.31-.22.24-.85.83-.85 2.03 0 1.2.88 2.36 1 2.53.13.16 1.72 2.63 4.17 3.69.58.25 1.04.4 1.4.51.59.19 1.12.16 1.54.1.47-.07 1.45-.59 1.65-1.17.21-.57.21-1.06.15-1.17-.06-.1-.23-.17-.48-.29-.25-.13-1.45-.72-1.68-.8-.22-.08-.39-.13-.55.12-.16.25-.63.8-.78.96-.14.16-.29.18-.54.06-.25-.13-1.04-.38-1.98-1.22-.73-.65-1.23-1.46-1.37-1.7-.14-.25-.01-.38.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.55-1.33-.76-1.82-.2-.48-.41-.42-.56-.43l-.48-.01z" />
+                </svg>
+              </button>
+            </form>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Slim Minimal Luxury Footer -->
+  <footer class="site-footer-slim">
+    <div class="container">
+      <div class="footer-slim-inner">
+        <div class="footer-slim-copy">
+          © 2026 EZUST JOYAS. Todos los derechos reservados.
+        </div>
+        <div class="footer-slim-dev">
+          Desarrollado por <a href="https://instagram.com/martiniano.web" target="_blank" rel="noopener"
+            class="developer-link">MGH</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp Action Button -->
+  <a href="https://wa.me/5493576415867?text=Hola%20Ezust%20joyas,%20quiero..." target="_blank" rel="noopener"
+    class="floating-whatsapp-btn" aria-label="Contactar por WhatsApp">
+    <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+      <path
+        d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.196 8.196 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24zm-3.53 3.99c-.19 0-.42.07-.64.31-.22.24-.85.83-.85 2.03 0 1.2.88 2.36 1 2.53.13.16 1.72 2.63 4.17 3.69.58.25 1.04.4 1.4.51.59.19 1.12.16 1.54.1.47-.07 1.45-.59 1.65-1.17.21-.57.21-1.06.15-1.17-.06-.1-.23-.17-.48-.29-.25-.13-1.45-.72-1.68-.8-.22-.08-.39-.13-.55.12-.16.25-.63.8-.78.96-.14.16-.29.18-.54.06-.25-.13-1.04-.38-1.98-1.22-.73-.65-1.23-1.46-1.37-1.7-.14-.25-.01-.38.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.55-1.33-.76-1.82-.2-.48-.41-.42-.56-.43l-.48-.01z" />
+    </svg>
+  </a>
+
+  <!-- Mobile Navigation Drawer -->
+  <div class="mobile-nav-drawer" id="mobileNavDrawer">
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+      <img src="assets/logo-official-gold.png" alt="Ezust Logo" style="height: 44px; width: auto; object-fit: contain;">
+      <button id="mobileNavClose" style="font-size: 1.5rem; color: var(--text-primary);">✕</button>
+    </div>
+    <div class="mobile-nav-links">
+      <a href="index.html" class="mobile-nav-link"><span>Inicio</span> <span>→</span></a>
+      <a href="catalogo.html" class="mobile-nav-link"><span>Catálogo</span> <span>→</span></a>
+      <a href="contacto.html" class="mobile-nav-link"><span>Información & Contacto</span> <span>→</span></a>
+    </div>
+  </div>
+
+  <!-- Fullscreen Luxury Sliding Product Canvas (SPA Product Page) -->
+  <div class="fullscreen-product-sheet" id="productFullscreenCanvas" aria-modal="true" role="dialog">
+    <div class="sheet-top-bar">
+      <button class="sheet-back-btn" id="productSheetBackBtn" type="button">
+        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path d="M19 12H5M12 19l-7-7 7-7" />
+        </svg>
+        <span>Volver</span>
+      </button>
+      <div class="sheet-logo-center">
+        <img src="assets/logo-official-gold.png" alt="EZUST JOYAS" height="34">
+      </div>
+      <button class="sheet-close-btn" id="productSheetCloseBtn" type="button" aria-label="Cerrar vista de producto">
+        ✕
+      </button>
+    </div>
+    <div class="product-sheet-scroll-body" id="productSheetBody"></div>
+  </div>
+
+  <!-- Drawer Backdrop Overlay -->
+  <div class="drawer-overlay" id="drawerOverlay"></div>
+
+  <!-- Scripts -->
+  <script src="js/app.js"></script>
+  <script>
+    // Form submission to WhatsApp
+    document.getElementById('contactInquiryForm')?.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const name = document.getElementById('cName').value.trim();
+      const subject = document.getElementById('cSubject').value;
+      const message = document.getElementById('cMessage').value.trim();
+
+      const text = `Hola Ezust joyas, quiero consultar sobre lo siguiente:\n\n• Nombre: ${name}\n• Motivo: ${subject}\n• Mensaje: ${message}`;
+
+      const waUrl = `https://wa.me/5493576415867?text=${encodeURIComponent(text)}`;
+      window.open(waUrl, '_blank');
+    });
+  </script>
+</body>
+
+</html>
