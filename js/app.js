@@ -961,16 +961,6 @@ function openProductSheet(productId) {
         <div class="sheet-main-image-frame" id="sheetMainImgFrame">
           <img id="sheetMainImg" src="${product.image}" alt="${product.name}" class="sheet-main-img">
         </div>
-        <div class="sheet-thumb-row">
-          <button type="button" class="sheet-thumb-btn active" onclick="switchSheetImage('${product.image}', this)">
-            <img src="${product.image}" alt="Vista General">
-            <span>Vista General</span>
-          </button>
-          <button type="button" class="sheet-thumb-btn" onclick="switchSheetImage('${product.hoverImage}', this)">
-            <img src="${product.hoverImage}" alt="Macro Zoom">
-            <span>Macro Detalle ✦</span>
-          </button>
-        </div>
       </div>
 
       <!-- Right Column: Editorial Data & Calibrator -->
