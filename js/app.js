@@ -183,75 +183,84 @@ document.addEventListener("DOMContentLoaded", () => {
   updateWishlistBadge();
 });
 
-// --- 4K Cinematic Hero & Micro-Interactions ---
+// --- 4K Cinematic Hero & Micro-Interactions (Delicate Diamond Sparkles) ---
 function initHeroCinematics() {
   const canvas = document.getElementById("heroSparklesCanvas");
+  if (!canvas) return;
 
-  // Floating Golden Sparkles Canvas
-  if (canvas) {
-    const ctx = canvas.getContext("2d");
-    let width = (canvas.width = canvas.offsetWidth || window.innerWidth);
-    let height = (canvas.height = canvas.offsetHeight || window.innerHeight);
+  const ctx = canvas.getContext("2d");
+  let width = (canvas.width = canvas.offsetWidth || window.innerWidth);
+  let height = (canvas.height = canvas.offsetHeight || window.innerHeight);
 
-    window.addEventListener("resize", () => {
-      width = canvas.width = canvas.offsetWidth || window.innerWidth;
-      height = canvas.height = canvas.offsetHeight || window.innerHeight;
+  window.addEventListener("resize", () => {
+    width = canvas.width = canvas.offsetWidth || window.innerWidth;
+    height = canvas.height = canvas.offsetHeight || window.innerHeight;
+  });
+
+  const particles = [];
+  const PARTICLE_COUNT = 36;
+
+  for (let i = 0; i < PARTICLE_COUNT; i++) {
+    particles.push({
+      x: Math.random() * width,
+      y: Math.random() * height,
+      size: Math.random() * 0.8 + 0.6, // Pequeños brillitos (0.6px a 1.4px)
+      phase: Math.random() * Math.PI * 2,
+      phaseSpeed: Math.random() * 0.03 + 0.015,
+      speedX: (Math.random() - 0.5) * 0.25,
+      speedY: -Math.random() * 0.35 - 0.1,
+      color: Math.random() > 0.4 ? "245, 225, 185" : "255, 245, 225"
+    });
+  }
+
+  function renderSparkles() {
+    ctx.clearRect(0, 0, width, height);
+
+    particles.forEach((p) => {
+      p.x += p.speedX;
+      p.y += p.speedY;
+      p.phase += p.phaseSpeed;
+
+      if (p.y < -10) {
+        p.y = height + 10;
+        p.x = Math.random() * width;
+      }
+      if (p.x < -10) p.x = width + 10;
+      if (p.x > width + 10) p.x = -10;
+
+      // Twinkle pulsation
+      const alpha = Math.max(0, Math.sin(p.phase));
+      if (alpha <= 0.02) return;
+
+      const glintLen = p.size * (2.8 + alpha * 1.8); // 2px - 5px micro-destello
+
+      // 1. Centro fino nítido (núcleo blanco brillante)
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.size * 0.7, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(255, 255, 255, ${Math.min(1, alpha * 0.95)})`;
+      ctx.fill();
+
+      // 2. Micro rayos en cruz (destello fino de joya de 4 puntas)
+      ctx.strokeStyle = `rgba(${p.color}, ${alpha * 0.75})`;
+      ctx.lineWidth = 0.65;
+
+      // Rayo horizontal
+      ctx.beginPath();
+      ctx.moveTo(p.x - glintLen, p.y);
+      ctx.lineTo(p.x + glintLen, p.y);
+      ctx.stroke();
+
+      // Rayo vertical
+      ctx.beginPath();
+      ctx.moveTo(p.x, p.y - glintLen);
+      ctx.lineTo(p.x, p.y + glintLen);
+      ctx.stroke();
     });
 
-    const particles = [];
-    const PARTICLE_COUNT = 32;
-
-    for (let i = 0; i < PARTICLE_COUNT; i++) {
-      particles.push({
-        x: Math.random() * width,
-        y: Math.random() * height,
-        radius: Math.random() * 1.8 + 0.5,
-        alpha: Math.random() * 0.7 + 0.2,
-        speedX: (Math.random() - 0.5) * 0.35,
-        speedY: -Math.random() * 0.45 - 0.15,
-        pulseSpeed: Math.random() * 0.02 + 0.01,
-        color: Math.random() > 0.4 ? "230, 202, 158" : "247, 231, 206"
-      });
-    }
-
-    function renderSparkles() {
-      ctx.clearRect(0, 0, width, height);
-
-      particles.forEach((p) => {
-        p.x += p.speedX;
-        p.y += p.speedY;
-        p.alpha += Math.sin(Date.now() * p.pulseSpeed) * 0.008;
-
-        if (p.y < 0) {
-          p.y = height + 10;
-          p.x = Math.random() * width;
-        }
-        if (p.x < 0) p.x = width;
-        if (p.x > width) p.x = 0;
-
-        const currentAlpha = Math.max(0.05, Math.min(0.85, p.alpha));
-
-        // Draw soft glow
-        const grad = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.radius * 3);
-        grad.addColorStop(0, `rgba(${p.color}, ${currentAlpha})`);
-        grad.addColorStop(1, `rgba(${p.color}, 0)`);
-
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.radius * 3, 0, Math.PI * 2);
-        ctx.fillStyle = grad;
-        ctx.fill();
-
-        // Draw core sparkle
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.radius * 0.7, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(255, 255, 255, ${currentAlpha * 0.9})`;
-        ctx.fill();
-      });
-
-      requestAnimationFrame(renderSparkles);
-    }
-    renderSparkles();
+    requestAnimationFrame(renderSparkles);
   }
+
+  renderSparkles();
 }
 
 // --- Header Scroll & Mobile Nav ---
