@@ -22,7 +22,7 @@
   <meta property="og:image" content="assets/products_hq/ez-real-01_main.jpg">
 
   <!-- Stylesheet -->
-  <link rel="stylesheet" href="css/style.css?v=20261023_fix_v5">
+  <link rel="stylesheet" href="css/style.css?v=20261023_fix_v6">
   <link rel="icon" type="image/svg+xml" href="assets/logo-symbol.svg">
 </head>
 
@@ -234,6 +234,25 @@
     </svg>
   </a>
 
+  <!-- Fullscreen Luxury Sliding Product Canvas (SPA Product Page) -->
+  <div class="fullscreen-product-sheet" id="productFullscreenCanvas" aria-modal="true" role="dialog">
+    <div class="sheet-top-bar">
+      <button class="sheet-back-btn" id="productSheetBackBtn" type="button">
+        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path d="M19 12H5M12 19l-7-7 7-7" />
+        </svg>
+        <span>Volver</span>
+      </button>
+      <div class="sheet-logo-center">
+        <img src="assets/logo-official-gold.png" alt="EZUST JOYAS" height="34">
+      </div>
+      <button class="sheet-close-btn" id="productSheetCloseBtn" type="button" aria-label="Cerrar vista de producto">
+        ✕
+      </button>
+    </div>
+    <div class="product-sheet-scroll-body" id="productSheetBody"></div>
+  </div>
+
   <!-- Slide-Out Shopping Bag Drawer -->
   <aside class="side-drawer" id="cartDrawer" aria-label="Bolsa de compras">
     <div class="drawer-header">
@@ -318,7 +337,7 @@
   <div class="drawer-overlay" id="drawerOverlay"></div>
 
   <!-- Scripts -->
-  <script src="js/app.js?v=20261023_fix_v5"></script>
+  <script src="js/app.js?v=20261023_fix_v6"></script>
 </body>
 
 </html>
