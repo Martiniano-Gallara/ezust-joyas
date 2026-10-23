@@ -956,7 +956,6 @@ function openProductSheet(productId) {
       <div class="sheet-gallery-col">
         <div class="sheet-main-image-frame" id="sheetMainImgFrame">
           <img id="sheetMainImg" src="${product.image}" alt="${product.name}" class="sheet-main-img">
-          <span class="sheet-hallmark-badge">✦ PIEZA OFICIAL ATELIER</span>
         </div>
         <div class="sheet-thumb-row">
           <button type="button" class="sheet-thumb-btn active" onclick="switchSheetImage('${product.image}', this)">

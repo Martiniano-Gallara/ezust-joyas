@@ -4567,11 +4567,19 @@ ul, ol {
   transition: all 0.3s ease;
 }
 
+.sheet-thumb-btn span {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex: 1;
+}
+
 .sheet-thumb-btn img {
   width: 44px;
   height: 44px;
   border-radius: 4px;
   object-fit: cover;
+  flex-shrink: 0;
 }
 
 .sheet-thumb-btn:hover,
@@ -4871,19 +4879,161 @@ ul, ol {
 }
 
 @media (max-width: 900px) {
-  .sheet-product-layout {
-    grid-template-columns: 1fr;
-    gap: 2.5rem;
+  .fullscreen-product-sheet {
+    z-index: 99999;
   }
+
   .sheet-top-bar {
-    padding: 1rem 1.5rem;
+    padding: 0.85rem 1.25rem;
   }
+
+  .sheet-logo-center img {
+    height: 26px;
+  }
+
+  .product-sheet-scroll-body {
+    padding: 1rem 0 3.5rem;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .sheet-product-layout {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1.5rem !important;
+    padding: 0 1.25rem !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .sheet-gallery-col {
+    position: static !important;
+    top: auto !important;
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.75rem !important;
+    margin: 0 !important;
+  }
+
+  .sheet-main-image-frame {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    max-height: 65vh;
+  }
+
+  .sheet-hallmark-badge {
+    top: 0.75rem;
+    left: 0.75rem;
+    font-size: 0.58rem;
+    letter-spacing: 0.1em;
+    padding: 0.25rem 0.6rem;
+  }
+
+  .sheet-thumb-row {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 0.65rem !important;
+    width: 100% !important;
+  }
+
+  .sheet-thumb-btn {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.55rem !important;
+    padding: 0.45rem 0.65rem !important;
+    min-height: 48px !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+  }
+
+  .sheet-thumb-btn img {
+    width: 36px !important;
+    height: 36px !important;
+    border-radius: 4px !important;
+    flex-shrink: 0 !important;
+    object-fit: cover !important;
+  }
+
+  .sheet-thumb-btn span {
+    font-size: 0.7rem !important;
+    letter-spacing: 0.04em !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    flex: 1;
+    text-align: left;
+  }
+
+  .sheet-info-col {
+    position: static !important;
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0 !important;
+  }
+
+  .sheet-tag-row {
+    margin-bottom: 0.5rem !important;
+    gap: 0.5rem !important;
+    flex-wrap: wrap !important;
+  }
+
+  .sheet-cat-tag {
+    font-size: 0.65rem !important;
+  }
+
+  .sheet-guarantee-pill {
+    font-size: 0.62rem !important;
+    padding: 0.2rem 0.55rem !important;
+  }
+
+  .sheet-product-title {
+    font-size: clamp(1.45rem, 5.5vw, 2rem) !important;
+    line-height: 1.2 !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .sheet-pricing-block {
+    padding: 1rem 1.2rem !important;
+    margin-bottom: 1.3rem !important;
+  }
+
+  .sheet-price-main {
+    font-size: 1.6rem !important;
+    margin-bottom: 0.35rem !important;
+  }
+
+  .sheet-installments-pill {
+    font-size: 0.78rem !important;
+  }
+
+  .sheet-cash-discount {
+    font-size: 0.74rem !important;
+  }
+
+  .sheet-product-desc {
+    font-size: 0.88rem !important;
+    line-height: 1.7 !important;
+    margin-bottom: 1.4rem !important;
+  }
+
+  .embedded-sizer-flex {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .embedded-sizer-visual {
+    margin: 0 auto;
+  }
+
   .sheet-assurance-grid {
     grid-template-columns: 1fr;
     gap: 0.8rem;
     text-align: left;
     align-items: flex-start;
   }
+
   .assurance-item {
     flex-direction: row;
   }
