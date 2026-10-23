@@ -71,7 +71,11 @@ html {
   -moz-osx-font-smoothing: grayscale;
   touch-action: manipulation;
   -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
   text-size-adjust: 100%;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 body {
@@ -81,8 +85,12 @@ body {
   font-weight: 400;
   line-height: 1.6;
   overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
   position: relative;
   touch-action: manipulation;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 img, svg, picture, video {
@@ -106,7 +114,7 @@ button {
 
 input, select, textarea {
   font-family: inherit;
-  font-size: 1rem;
+  font-size: 16px !important; /* Prevents iOS Safari from auto-zooming page */
 }
 
 ul, ol {
@@ -2333,7 +2341,7 @@ ul, ol {
 .newsletter-input {
   flex: 1;
   padding: 0.95rem 1.4rem;
-  font-size: 0.85rem;
+  font-size: 16px !important;
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(197, 168, 128, 0.35);
   border-radius: var(--radius-sm);
@@ -4610,12 +4618,9 @@ ul, ol {
 .sheet-main-img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.sheet-main-image-frame:hover .sheet-main-img {
-  transform: none;
+  object-fit: contain;
+  background: #151312;
+  transition: opacity 0.3s ease;
 }
 
 .sheet-hallmark-badge {
@@ -5260,7 +5265,7 @@ ul, ol {
   border: none;
   color: #FAF8F5;
   font-family: var(--font-sans);
-  font-size: 0.78rem;
+  font-size: 16px !important;
   outline: none;
   padding: 0.2rem 0.4rem;
   letter-spacing: 0.05em;

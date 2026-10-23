@@ -168,6 +168,7 @@ document.addEventListener("DOMContentLoaded", () => {
     state.currentCategory = cat;
   }
 
+  preventPageZoom();
   initHeader();
   initHeroCinematics();
   renderProducts();
@@ -261,6 +262,33 @@ function initHeroCinematics() {
   }
 
   renderSparkles();
+}
+
+// --- Prevent Accidental Mobile Zoom & Gestures ---
+function preventPageZoom() {
+  // Prevent iOS pinch zoom gestures
+  document.addEventListener("gesturestart", (e) => e.preventDefault(), { passive: false });
+  document.addEventListener("gesturechange", (e) => e.preventDefault(), { passive: false });
+  document.addEventListener("gestureend", (e) => e.preventDefault(), { passive: false });
+
+  // Prevent multi-touch pinch to zoom
+  document.addEventListener("touchstart", (e) => {
+    if (e.touches && e.touches.length > 1) {
+      e.preventDefault();
+    }
+  }, { passive: false });
+
+  // Prevent double tap to zoom on non-interactive elements
+  let lastTouch = 0;
+  document.addEventListener("touchend", (e) => {
+    const now = Date.now();
+    if (now - lastTouch <= 300) {
+      if (!e.target.closest("button, a, input, select, textarea, label, [role='button']")) {
+        e.preventDefault();
+      }
+    }
+    lastTouch = now;
+  }, { passive: false });
 }
 
 // --- Header Scroll & Mobile Nav ---
