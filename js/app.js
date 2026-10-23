@@ -753,10 +753,12 @@ function updateCartBadge() {
 
 function renderCart() {
   const container = document.getElementById("cartItemsContainer");
+  const footer = document.getElementById("cartDrawerFooter");
   const subtotalElem = document.getElementById("cartSubtotal");
-  const shippingFill = document.getElementById("shippingFill");
-  const shippingText = document.getElementById("shippingText");
+  const transferPriceElem = document.getElementById("cartTransferPrice");
   const checkoutBtn = document.getElementById("checkoutWhatsappBtn");
+  const checkoutTransferBtn = document.getElementById("checkoutTransferBtn");
+  const checkoutBtnText = document.getElementById("checkoutWhatsappBtnText");
 
   if (!container) return;
 
@@ -770,26 +772,25 @@ function renderCart() {
         </svg>
         <h4>Tu bolsa de compras está vacía</h4>
         <p>Descubrí piezas únicas creadas para acompañar tus mejores momentos.</p>
-        <button class="btn-luxury btn-primary" onclick="closeDrawer(document.getElementById('cartDrawer'))" style="margin: 0 auto;">
+        <button type="button" class="btn-luxury btn-primary" onclick="closeDrawer(document.getElementById('cartDrawer'))" style="margin: 0 auto; display: inline-flex;">
           Explorar Colección
         </button>
       </div>
     `;
-    if (subtotalElem) subtotalElem.innerText = CURRENCY_RATES[currentCurrency].format(0);
-    if (shippingFill) shippingFill.style.width = "0%";
-    if (shippingText) shippingText.innerHTML = `<span>Envío asegurado sin cargo</span> <strong>Faltan $ 120.000</strong>`;
-    if (checkoutBtn) checkoutBtn.style.display = "none";
+    if (footer) footer.style.display = "none";
     return;
   }
 
-  if (checkoutBtn) checkoutBtn.style.display = "flex";
+  if (footer) footer.style.display = "block";
 
   let totalARS = 0;
+  let totalItems = 0;
   container.innerHTML = "";
 
   state.cart.forEach((item, index) => {
     const itemTotal = item.priceARS * item.quantity;
     totalARS += itemTotal;
+    totalItems += item.quantity;
 
     const itemEl = document.createElement("div");
     itemEl.className = "cart-item-card";
@@ -799,16 +800,16 @@ function renderCart() {
       </div>
       <div>
         <h4 class="cart-item-title">${item.name}</h4>
-        <div class="cart-item-meta">${item.metal} · Medida: ${item.size}</div>
+        <div class="cart-item-meta">${item.metal} · Talla: ${item.size}</div>
         <div class="cart-item-price">${CURRENCY_RATES[currentCurrency].format(item.priceARS)}</div>
         <div class="cart-qty-ctrl">
-          <button class="qty-btn" onclick="updateCartQty(${index}, -1)">-</button>
+          <button type="button" class="qty-btn" onclick="updateCartQty(${index}, -1)" aria-label="Restar una unidad">−</button>
           <span class="qty-value">${item.quantity}</span>
-          <button class="qty-btn" onclick="updateCartQty(${index}, 1)">+</button>
+          <button type="button" class="qty-btn" onclick="updateCartQty(${index}, 1)" aria-label="Sumar una unidad">+</button>
         </div>
       </div>
-      <button class="cart-item-remove" onclick="removeCartItem(${index})" title="Eliminar">
-        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+      <button type="button" class="cart-item-remove" onclick="removeCartItem(${index})" title="Eliminar" aria-label="Eliminar producto">
+        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
           <path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
         </svg>
       </button>
@@ -816,24 +817,32 @@ function renderCart() {
     container.appendChild(itemEl);
   });
 
+  const cashTotalARS = Math.round(totalARS * 0.85);
+
   if (subtotalElem) {
     subtotalElem.innerText = CURRENCY_RATES[currentCurrency].format(totalARS);
   }
-
-  if (shippingText) {
-    shippingText.innerHTML = `<span>✦ Envíos asegurados a todo el país por Andreani y Correo Argentino</span>`;
+  if (transferPriceElem) {
+    transferPriceElem.innerText = `$ ${cashTotalARS.toLocaleString("es-AR")}`;
   }
-  if (shippingFill) shippingFill.style.width = "100%";
 
-  // Set WhatsApp Checkout Link
+  // Set WhatsApp Checkout Links
+  let msg = `Hola Ezust Joyas! ✨ Me gustaría encargar las siguientes piezas de su Atelier:\n\n`;
+  state.cart.forEach(item => {
+    msg += `• ${item.name} (${item.metal}, Talla ${item.size}) x${item.quantity} - $${(item.priceARS * item.quantity).toLocaleString("es-AR")}\n`;
+  });
+  msg += `\nSubtotal: $${totalARS.toLocaleString("es-AR")} ARS\nTotal c/ Transferencia (15% OFF): $${cashTotalARS.toLocaleString("es-AR")} ARS\n\n¿Tienen disponibilidad y asesoría de envío? Muchas gracias!`;
+
   if (checkoutBtn) {
-    let msg = `Hola Ezust Joyas! ✨ Me gustaría encargar las siguientes piezas de su Atelier:\n\n`;
-    state.cart.forEach(item => {
-      msg += `• ${item.name} (${item.metal}, Talla ${item.size}) x${item.quantity} - $${(item.priceARS * item.quantity).toLocaleString("es-AR")}\n`;
-    });
-    msg += `\nTotal: $${totalARS.toLocaleString("es-AR")} ARS\n\n¿Tienen disponibilidad y asesoría de envío? Muchas gracias!`;
-
     checkoutBtn.href = `https://wa.me/5493576415867?text=${encodeURIComponent(msg)}`;
+    if (checkoutBtnText) {
+      checkoutBtnText.innerText = `Finalizar Pedido (${totalItems} ${totalItems === 1 ? 'joya' : 'joyas'})`;
+    }
+  }
+
+  if (checkoutTransferBtn) {
+    const transferMsg = msg + `\n(Deseo abonar con Transferencia Bancaria para aprovechar el 15% OFF)`;
+    checkoutTransferBtn.href = `https://wa.me/5493576415867?text=${encodeURIComponent(transferMsg)}`;
   }
 }
 

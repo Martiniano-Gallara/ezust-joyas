@@ -22,7 +22,7 @@
   <meta property="og:image" content="assets/products_hq/ez-real-01_main.jpg">
 
   <!-- Stylesheet -->
-  <link rel="stylesheet" href="css/style.css?v=20261023_sheet_v4">
+  <link rel="stylesheet" href="css/style.css?v=20261023_fix_v5">
   <link rel="icon" type="image/svg+xml" href="assets/logo-symbol.svg">
 </head>
 
@@ -254,24 +254,27 @@
     </div>
 
     <!-- Drawer Footer -->
-    <div class="drawer-footer">
+    <div class="drawer-footer" id="cartDrawerFooter">
       <div class="drawer-subtotal-row">
         <span class="drawer-subtotal-label">Subtotal estimado:</span>
         <span class="drawer-subtotal-price" id="cartSubtotal">$ 0</span>
       </div>
+      <div class="drawer-transfer-discount-row" id="cartTransferDiscountRow">
+        <span>✦ 15% OFF pagando con Transferencia: <strong id="cartTransferPrice">$ 0</strong></span>
+      </div>
       <div class="drawer-actions">
         <a href="#" id="checkoutWhatsappBtn" target="_blank" rel="noopener" class="btn-luxury btn-checkout-whatsapp"
           style="width: 100%; justify-content: center;">
-          <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
+          <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
             <path
               d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.196 8.196 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24zm-3.53 3.99c-.19 0-.42.07-.64.31-.22.24-.85.83-.85 2.03 0 1.2.88 2.36 1 2.53.13.16 1.72 2.63 4.17 3.69.58.25 1.04.4 1.4.51.59.19 1.12.16 1.54.1.47-.07 1.45-.59 1.65-1.17.21-.57.21-1.06.15-1.17-.06-.1-.23-.17-.48-.29-.25-.13-1.45-.72-1.68-.8-.22-.08-.39-.13-.55.12-.16.25-.63.8-.78.96-.14.16-.29.18-.54.06-.25-.13-1.04-.38-1.98-1.22-.73-.65-1.23-1.46-1.37-1.7-.14-.25-.01-.38.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.55-1.33-.76-1.82-.2-.48-.41-.42-.56-.43l-.48-.01z" />
           </svg>
-          <span>Ordenar por WhatsApp</span>
+          <span id="checkoutWhatsappBtnText">Finalizar Pedido por WhatsApp</span>
         </a>
-        <button class="btn-luxury btn-primary"
-          onclick="showToast('Procesando Orden', 'Redirigiendo a pasarela segura de pago...');" style="width: 100%;">
-          <span>Iniciar Pago Seguro</span>
-        </button>
+        <a href="#" id="checkoutTransferBtn" target="_blank" rel="noopener" class="btn-luxury btn-checkout-transfer"
+          style="width: 100%; justify-content: center;">
+          <span>Pagar con Transferencia (15% OFF)</span>
+        </a>
       </div>
     </div>
   </aside>
