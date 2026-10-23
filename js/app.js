@@ -947,6 +947,10 @@ function openProductSheet(productId) {
   const isWished = state.wishlist.some(item => item.id === product.id);
   const formattedPrice = CURRENCY_RATES[currentCurrency].format(product.priceARS);
   const installmentVal = (product.priceARS / 6).toFixed(0);
+  const cashPriceARS = Math.round(product.priceARS * 0.85);
+  const formattedCashPrice = CURRENCY_RATES[currentCurrency] 
+    ? (currentCurrency === "ARS" ? `$ ${cashPriceARS.toLocaleString("es-AR")}` : CURRENCY_RATES[currentCurrency].format(cashPriceARS))
+    : `$ ${cashPriceARS.toLocaleString("es-AR")}`;
 
   const isRingOrHasSizes = product.category === "anillos" || (product.sizes && product.sizes.some(s => s.toLowerCase().includes("talla") || !isNaN(s)));
 
@@ -982,11 +986,18 @@ function openProductSheet(productId) {
         <div class="sheet-pricing-block">
           <div class="sheet-price-main">${formattedPrice}</div>
           <div class="sheet-installments-pill">
-            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
-            <span>6 cuotas sin interés de <strong>$ ${Number(installmentVal).toLocaleString("es-AR")}</strong></span>
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
+            <div>
+              <span class="sheet-inst-title">Hasta <strong>6 cuotas sin interés</strong> de <strong>$ ${Number(installmentVal).toLocaleString("es-AR")}</strong></span>
+              <span class="sheet-inst-cards">Con todas las tarjetas bancarias (Visa, Mastercard, Cabal, Amex)</span>
+            </div>
           </div>
           <div class="sheet-cash-discount">
-            ✦ <strong>15% OFF EXTRA</strong> abonando con Transferencia Bancaria
+            <svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            <div>
+              <span><strong>${formattedCashPrice}</strong> con <strong>15% OFF EXTRA</strong></span>
+              <span class="sheet-cash-sub">Abonando con Transferencia Bancaria</span>
+            </div>
           </div>
         </div>
 
