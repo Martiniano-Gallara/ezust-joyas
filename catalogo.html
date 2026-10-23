@@ -22,7 +22,7 @@
   <meta property="og:image" content="assets/products_hq/ez-real-01_main.jpg">
 
   <!-- Stylesheet -->
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css?v=20261009_m4">
   <link rel="icon" type="image/svg+xml" href="assets/logo-symbol.svg">
 </head>
 
@@ -290,7 +290,16 @@
     <div class="mobile-nav-links">
       <a href="index.html" class="mobile-nav-link"><span>Inicio</span> <span>→</span></a>
       <a href="catalogo.html" class="mobile-nav-link"><span>Catálogo</span> <span>→</span></a>
+      <a href="javascript:void(0)" class="mobile-nav-link"
+        onclick="document.getElementById('mobileNavDrawer').classList.remove('active'); openDrawer(document.getElementById('wishlistDrawer'));">
+        <span>Mis Favoritos ♡</span>
+        <span style="font-size: 0.85rem; color: var(--gold-light);">Ver lista →</span>
+      </a>
       <a href="contacto.html" class="mobile-nav-link"><span>Información & Contacto</span> <span>→</span></a>
+      <a href="https://wa.me/5493576467389" target="_blank" rel="noopener" class="mobile-nav-link" style="color: var(--gold-bright);">
+        <span>Atención WhatsApp</span>
+        <span>💬</span>
+      </a>
     </div>
   </div>
 
