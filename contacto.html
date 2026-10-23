@@ -420,11 +420,67 @@
     <div class="product-sheet-scroll-body" id="productSheetBody"></div>
   </div>
 
+  <!-- Slide-Out Shopping Bag Drawer -->
+  <aside class="side-drawer" id="cartDrawer" aria-label="Bolsa de compras">
+    <div class="drawer-header">
+      <h3 class="drawer-title">Bolsa de Compras</h3>
+      <button class="drawer-close-btn" id="cartCloseBtn" aria-label="Cerrar bolsa">✕</button>
+    </div>
+
+    <!-- Shipping Info -->
+    <div class="drawer-shipping-meter">
+      <div class="shipping-meter-text" id="shippingText">
+        <span>✦ Envíos asegurados a todo el país por Andreani y Correo Argentino</span>
+      </div>
+    </div>
+
+    <!-- Items List -->
+    <div class="drawer-body" id="cartItemsContainer">
+      <!-- Injected via app.js -->
+    </div>
+
+    <!-- Drawer Footer -->
+    <div class="drawer-footer" id="cartDrawerFooter">
+      <div class="drawer-subtotal-row">
+        <span class="drawer-subtotal-label">Subtotal estimado:</span>
+        <span class="drawer-subtotal-price" id="cartSubtotal">$ 0</span>
+      </div>
+      <div class="drawer-transfer-discount-row" id="cartTransferDiscountRow">
+        <span>✦ 15% OFF pagando con Transferencia: <strong id="cartTransferPrice">$ 0</strong></span>
+      </div>
+      <div class="drawer-actions">
+        <a href="#" id="checkoutWhatsappBtn" target="_blank" rel="noopener" class="btn-luxury btn-checkout-whatsapp"
+          style="width: 100%; justify-content: center;">
+          <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+            <path
+              d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.699c.971.53 1.771.815 2.796.815 3.181 0 5.767-2.587 5.768-5.766.001-3.18-2.585-5.766-5.768-5.766zm9.969 5.766c0 5.518-4.482 10-10 10-1.697 0-3.286-.423-4.685-1.168l-5.315 1.392 1.417-5.181c-.881-1.488-1.417-3.218-1.417-5.043 0-5.518 4.482-10 10-10s10 4.482 10 10z" />
+          </svg>
+          <span id="checkoutWhatsappBtnText">Finalizar Pedido por WhatsApp</span>
+        </a>
+        <a href="#" id="checkoutTransferBtn" target="_blank" rel="noopener" class="btn-luxury btn-checkout-transfer"
+          style="width: 100%; justify-content: center;">
+          <span>Pagar con Transferencia (15% OFF)</span>
+        </a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Slide-Out Wishlist Drawer -->
+  <aside class="side-drawer" id="wishlistDrawer" aria-label="Lista de Deseos">
+    <div class="drawer-header">
+      <h3 class="drawer-title">Lista de Deseos</h3>
+      <button class="drawer-close-btn" id="wishlistCloseBtn" aria-label="Cerrar favoritos">✕</button>
+    </div>
+    <div class="drawer-body" id="wishlistItemsContainer">
+      <!-- Injected via app.js -->
+    </div>
+  </aside>
+
   <!-- Drawer Backdrop Overlay -->
   <div class="drawer-overlay" id="drawerOverlay"></div>
 
   <!-- Scripts -->
-  <script src="js/app.js"></script>
+  <script src="js/app.js?v=20261023_fix_v5"></script>
   <script>
     // Form submission to WhatsApp
     document.getElementById('contactInquiryForm')?.addEventListener('submit', function (e) {
