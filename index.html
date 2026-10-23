@@ -522,24 +522,27 @@
     </div>
 
     <!-- Drawer Footer -->
-    <div class="drawer-footer">
+    <div class="drawer-footer" id="cartDrawerFooter">
       <div class="drawer-subtotal-row">
         <span class="drawer-subtotal-label">Subtotal estimado:</span>
         <span class="drawer-subtotal-price" id="cartSubtotal">$ 0</span>
       </div>
+      <div class="drawer-transfer-discount-row" id="cartTransferDiscountRow">
+        <span>✦ 15% OFF pagando con Transferencia: <strong id="cartTransferPrice">$ 0</strong></span>
+      </div>
       <div class="drawer-actions">
         <a href="#" id="checkoutWhatsappBtn" target="_blank" rel="noopener" class="btn-luxury btn-checkout-whatsapp"
           style="width: 100%; justify-content: center;">
-          <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
+          <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
             <path
               d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.699c.971.53 1.771.815 2.796.815 3.181 0 5.767-2.587 5.768-5.766.001-3.18-2.585-5.766-5.768-5.766zm9.969 5.766c0 5.518-4.482 10-10 10-1.697 0-3.286-.423-4.685-1.168l-5.315 1.392 1.417-5.181c-.881-1.488-1.417-3.218-1.417-5.043 0-5.518 4.482-10 10-10s10 4.482 10 10z" />
           </svg>
-          <span>Ordenar por WhatsApp</span>
+          <span id="checkoutWhatsappBtnText">Finalizar Pedido por WhatsApp</span>
         </a>
-        <button class="btn-luxury btn-primary"
-          onclick="showToast('Procesando Orden', 'Redirigiendo a pasarela segura de pago...');" style="width: 100%;">
-          <span>Iniciar Pago Seguro</span>
-        </button>
+        <a href="#" id="checkoutTransferBtn" target="_blank" rel="noopener" class="btn-luxury btn-checkout-transfer"
+          style="width: 100%; justify-content: center;">
+          <span>Pagar con Transferencia (15% OFF)</span>
+        </a>
       </div>
     </div>
   </aside>
