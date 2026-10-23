@@ -4495,7 +4495,7 @@ ul, ol {
   height: 100vh;
   background: #0E0D0C;
   color: #FAF8F5;
-  z-index: 9999;
+  z-index: 85000;
   transform: translateX(100%);
   opacity: 0;
   pointer-events: none;
@@ -5034,7 +5034,7 @@ ul, ol {
 
 @media (max-width: 900px) {
   .fullscreen-product-sheet {
-    z-index: 99999;
+    z-index: 85000;
   }
 
   .sheet-top-bar {
