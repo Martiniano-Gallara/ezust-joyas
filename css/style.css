@@ -66,11 +66,12 @@
 
 html {
   scroll-behavior: smooth;
-  font-size: 16px;
+  font-size: 15px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   touch-action: manipulation;
   -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 body {
@@ -248,7 +249,7 @@ ul, ol {
 }
 
 .header-logo-link:hover .header-logo-img {
-  transform: scale(1.04);
+  transform: none;
   filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.95)) drop-shadow(0 0 4px rgba(230, 202, 158, 0.8));
 }
 
@@ -379,14 +380,14 @@ ul, ol {
   z-index: 1000;
   opacity: 0;
   visibility: hidden;
-  transform: translateY(-8px) scale(0.96);
+  transform: translateY(-8px);
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .custom-currency-dropdown.active .currency-dropdown-menu {
   opacity: 1;
   visibility: visible;
-  transform: translateY(0) scale(1);
+  transform: translateY(0);
 }
 
 .currency-menu-item {
@@ -576,11 +577,11 @@ ul, ol {
 @keyframes causticShimmer {
   0% {
     opacity: 0.6;
-    transform: scale(0.9) rotate(0deg);
+    transform: rotate(0deg);
   }
   100% {
-    opacity: 1;
-    transform: scale(1.2) rotate(15deg);
+    opacity: 0.9;
+    transform: rotate(15deg);
   }
 }
 
@@ -638,8 +639,8 @@ ul, ol {
 }
 
 @keyframes pulseSparkle {
-  0%, 100% { opacity: 0.6; transform: scale(0.9); }
-  50% { opacity: 1; transform: scale(1.2); filter: drop-shadow(0 0 6px var(--gold-bright)); }
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; filter: drop-shadow(0 0 6px var(--gold-bright)); }
 }
 
 .hero-editorial-headline {
@@ -1317,7 +1318,7 @@ ul, ol {
   background: #1A1816;
   color: #FAF8F5;
   border-color: #1A1816;
-  transform: scale(1.08);
+  transform: none;
 }
 
 .filter-scroll-btn.hidden {
@@ -1790,7 +1791,7 @@ ul, ol {
 }
 
 .lookbook-item:hover img {
-  transform: scale(1.04);
+  transform: none;
 }
 
 .lookbook-overlay {
@@ -2152,7 +2153,7 @@ ul, ol {
   background: #1A1816;
   color: #FAF8F5;
   border-color: #1A1816;
-  transform: scale(1.08);
+  transform: none;
 }
 
 .testimonials-nav-btn.hidden {
@@ -2255,7 +2256,7 @@ ul, ol {
 }
 
 .instagram-card:hover img {
-  transform: scale(1.08);
+  transform: none;
 }
 
 .instagram-hover-overlay {
@@ -2919,14 +2920,13 @@ ul, ol {
 }
 
 @keyframes waPulseRipple {
-  0% { transform: scale(0.95); opacity: 0.85; }
-  60% { transform: scale(1.35); opacity: 0; }
-  100% { transform: scale(1.35); opacity: 0; }
+  0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6); opacity: 0.85; }
+  100% { box-shadow: 0 0 0 16px rgba(37, 211, 102, 0); opacity: 0; }
 }
 
 .floating-whatsapp-btn:hover {
-  transform: translateY(-4px) scale(1.08);
-  box-shadow: 0 12px 28px rgba(37, 211, 102, 0.6), 0 6px 16px rgba(0, 0, 0, 0.25);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(37, 211, 102, 0.5), 0 4px 12px rgba(0, 0, 0, 0.2);
   color: #FFFFFF;
 }
 
@@ -2937,7 +2937,7 @@ ul, ol {
 }
 
 .floating-whatsapp-btn:hover svg {
-  transform: scale(1.05);
+  transform: none;
 }
 
 /* --- Search Modal Overlay --- */
@@ -3251,12 +3251,15 @@ ul, ol {
 }
 
 @media (max-width: 768px) {
+  html {
+    font-size: 14px !important;
+  }
   /* 4K Hero Mobile Adaptation */
   .hero-cinematic-section {
-    min-height: 100vh;
-    min-height: 100dvh;
-    max-height: none;
-    padding: 5.5rem 0 3.8rem;
+    min-height: 85vh;
+    min-height: 85dvh;
+    max-height: 720px;
+    padding: 5rem 0 3rem;
     display: flex;
     align-items: center;
   }
@@ -3271,7 +3274,7 @@ ul, ol {
     display: flex !important;
   }
   .hero-cinematic-img {
-    object-position: center center;
+    object-position: center top !important;
     filter: brightness(0.75) contrast(1.05);
     transform: none !important;
   }
@@ -4526,7 +4529,7 @@ ul, ol {
 }
 
 .sheet-main-image-frame:hover .sheet-main-img {
-  transform: scale(1.06);
+  transform: none;
 }
 
 .sheet-hallmark-badge {
