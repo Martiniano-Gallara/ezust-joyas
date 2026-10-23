@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Catálogo de Alta Distinción | EZUST JOYAS · Plata 925 & Oro 18K</title>
 
   <!-- SEO & Meta Tags -->
@@ -22,7 +22,7 @@
   <meta property="og:image" content="assets/products_hq/ez-real-01_main.jpg">
 
   <!-- Stylesheet -->
-  <link rel="stylesheet" href="css/style.css?v=20261023_logo">
+  <link rel="stylesheet" href="css/style.css?v=20261023_nozoom">
   <link rel="icon" type="image/svg+xml" href="assets/logo-symbol.svg">
 </head>
 
@@ -153,13 +153,21 @@
 
       <!-- Filters & Sorting Bar -->
       <div class="catalog-filters-bar">
-        <div class="filter-categories">
-          <button class="filter-btn active" data-category="all">Todas las Joyas</button>
-          <button class="filter-btn" data-category="anillos">Anillos</button>
-          <button class="filter-btn" data-category="collares">Collares</button>
-          <button class="filter-btn" data-category="pulseras">Pulseras</button>
-          <button class="filter-btn" data-category="aros">Aros</button>
-          <button class="filter-btn" data-category="nupcial">Nupcial</button>
+        <div class="filter-categories-wrap">
+          <button class="filter-scroll-btn filter-scroll-left hidden" aria-label="Desplazar categorías a la izquierda" type="button">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+          </button>
+          <div class="filter-categories">
+            <button class="filter-btn active" data-category="all">Todas las Joyas</button>
+            <button class="filter-btn" data-category="anillos">Anillos</button>
+            <button class="filter-btn" data-category="collares">Collares</button>
+            <button class="filter-btn" data-category="pulseras">Pulseras</button>
+            <button class="filter-btn" data-category="aros">Aros</button>
+            <button class="filter-btn" data-category="nupcial">Nupcial</button>
+          </div>
+          <button class="filter-scroll-btn filter-scroll-right" aria-label="Desplazar categorías a la derecha" type="button">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </button>
         </div>
 
         <div class="catalog-sort-wrap">

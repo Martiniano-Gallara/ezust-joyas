@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>EZUST JOYAS</title>
 
   <!-- SEO & Meta Tags -->
@@ -22,7 +22,7 @@
   <meta property="og:image" content="assets/img/hero_bride_gold.jpg">
 
   <!-- Stylesheet (cache-busted for mobile updates) -->
-  <link rel="stylesheet" href="css/style.css?v=20261023_logo">
+  <link rel="stylesheet" href="css/style.css?v=20261023_nozoom">
   <link rel="icon" type="image/svg+xml" href="assets/logo-symbol.svg">
 </head>
 
@@ -289,13 +289,21 @@
 
       <!-- Filters & Sorting Bar -->
       <div class="catalog-filters-bar">
-        <div class="filter-categories">
-          <button class="filter-btn active" data-category="all">Todas las Joyas</button>
-          <button class="filter-btn" data-category="anillos">Anillos</button>
-          <button class="filter-btn" data-category="collares">Collares</button>
-          <button class="filter-btn" data-category="pulseras">Pulseras</button>
-          <button class="filter-btn" data-category="aros">Aros</button>
-          <button class="filter-btn" data-category="nupcial">Nupcial</button>
+        <div class="filter-categories-wrap">
+          <button class="filter-scroll-btn filter-scroll-left hidden" aria-label="Desplazar categorías a la izquierda" type="button">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+          </button>
+          <div class="filter-categories">
+            <button class="filter-btn active" data-category="all">Todas las Joyas</button>
+            <button class="filter-btn" data-category="anillos">Anillos</button>
+            <button class="filter-btn" data-category="collares">Collares</button>
+            <button class="filter-btn" data-category="pulseras">Pulseras</button>
+            <button class="filter-btn" data-category="aros">Aros</button>
+            <button class="filter-btn" data-category="nupcial">Nupcial</button>
+          </div>
+          <button class="filter-scroll-btn filter-scroll-right" aria-label="Desplazar categorías a la derecha" type="button">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </button>
         </div>
 
         <div class="catalog-sort-wrap">
@@ -341,53 +349,100 @@
         <h2 class="section-title">Testimonios de <em>Nuestras Clientas</em></h2>
       </div>
 
-      <div class="testimonials-grid">
+      <div class="testimonials-carousel-wrap">
+        <button class="testimonials-nav-btn testimonials-nav-prev hidden" id="testiPrevBtn" aria-label="Testimonio anterior" type="button">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        </button>
 
-        <div class="testimonial-card">
-          <div class="testimonial-stars">★★★★★</div>
-          <p class="testimonial-text">
-            “Elegí las joyas para mi casamiento en Ezust. La delicadeza del collar y los aros fue el toque mágico de mi
-            vestido. El packaging y la atención personalizada superaron cualquier expectativa.”
-          </p>
-          <div class="testimonial-author">
-            <div class="author-avatar">VB</div>
-            <div class="author-info">
-              <h5>Valentina B.</h5>
-              <span>✦ Compra Verificada · Set Nupcial</span>
+        <div class="testimonials-grid" id="testimonialsTrack">
+
+          <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">
+              “Elegí las joyas para mi casamiento en Ezust. La delicadeza del collar y los aros fue el toque mágico de mi
+              vestido. El packaging y la atención personalizada superaron cualquier expectativa.”
+            </p>
+            <div class="testimonial-author">
+              <div class="author-avatar">VB</div>
+              <div class="author-info">
+                <h5>Valentina B.</h5>
+                <span>✦ Compra Verificada · Set Nupcial</span>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="testimonial-card">
-          <div class="testimonial-stars">★★★★★</div>
-          <p class="testimonial-text">
-            “El medallón mandala es simplemente sublime. La calidad del enchapado en oro es impecable, lo uso a diario y
-            mantiene su brillo radiante como el primer día. Ya es mi amuleto.”
-          </p>
-          <div class="testimonial-author">
-            <div class="author-avatar">CL</div>
-            <div class="author-info">
-              <h5>Camila L.</h5>
-              <span>✦ Compra Verificada · Medallón Aurora</span>
+          <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">
+              “El medallón mandala es simplemente sublime. La calidad del enchapado en oro es impecable, lo uso a diario y
+              mantiene su brillo radiante como el primer día. Ya es mi amuleto.”
+            </p>
+            <div class="testimonial-author">
+              <div class="author-avatar">CL</div>
+              <div class="author-info">
+                <h5>Camila L.</h5>
+                <span>✦ Compra Verificada · Medallón Aurora</span>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="testimonial-card">
-          <div class="testimonial-stars">★★★★★</div>
-          <p class="testimonial-text">
-            “Compré el set de anillos de ónix y plata. La terminación es de joyería de primer nivel internacional. Da
-            gusto encontrar marcas argentinas con tanta dedicación por el detalle.”
-          </p>
-          <div class="testimonial-author">
-            <div class="author-avatar">SR</div>
-            <div class="author-info">
-              <h5>Sofía R.</h5>
-              <span>✦ Compra Verificada · Anillos Éternité</span>
+          <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">
+              “Compré el set de anillos de ónix y plata. La terminación es de joyería de primer nivel internacional. Da
+              gusto encontrar marcas argentinas con tanta dedicación por el detalle.”
+            </p>
+            <div class="testimonial-author">
+              <div class="author-avatar">SR</div>
+              <div class="author-info">
+                <h5>Sofía R.</h5>
+                <span>✦ Compra Verificada · Anillos Éternité</span>
+              </div>
             </div>
           </div>
+
+          <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">
+              “Buscaba una joya especial para el aniversario de mi mamá. La gargantilla de perlas y plata superó todo lo imaginado, llegó en 24 horas con estuche de lujo.”
+            </p>
+            <div class="testimonial-author">
+              <div class="author-avatar">MA</div>
+              <div class="author-info">
+                <h5>Mariana A.</h5>
+                <span>✦ Compra Verificada · Gargantilla Signature</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">
+              “El calibrador digital me permitió acertar mi medida exacta sin moverme de casa. El anillo solitario es deslumbrante, súper cómodo y brillante.”
+            </p>
+            <div class="testimonial-author">
+              <div class="author-avatar">LG</div>
+              <div class="author-info">
+                <h5>Lucía G.</h5>
+                <span>✦ Compra Verificada · Solitario Lumière</span>
+              </div>
+            </div>
+          </div>
+
         </div>
 
+        <button class="testimonials-nav-btn testimonials-nav-next" id="testiNextBtn" aria-label="Siguiente testimonio" type="button">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </button>
+      </div>
+
+      <!-- Carousel Pagination Dots -->
+      <div class="testimonials-dots" id="testimonialsDots">
+        <button class="testi-dot active" aria-label="Testimonio 1"></button>
+        <button class="testi-dot" aria-label="Testimonio 2"></button>
+        <button class="testi-dot" aria-label="Testimonio 3"></button>
+        <button class="testi-dot" aria-label="Testimonio 4"></button>
+        <button class="testi-dot" aria-label="Testimonio 5"></button>
       </div>
 
   </section>

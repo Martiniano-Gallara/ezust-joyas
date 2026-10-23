@@ -171,6 +171,8 @@ document.addEventListener("DOMContentLoaded", () => {
   initHeader();
   initHeroCinematics();
   renderProducts();
+  initFilterCategoriesScroll();
+  initTestimonialsCarousel();
   initDrawers();
   initModals();
   initRingSizer();
@@ -183,31 +185,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // --- 4K Cinematic Hero & Micro-Interactions ---
 function initHeroCinematics() {
-  const heroSection = document.querySelector(".hero-cinematic-section");
-  const heroImg = document.getElementById("heroCinematicImg");
   const canvas = document.getElementById("heroSparklesCanvas");
-
-  if (heroSection && heroImg) {
-    // Parallax mouse follow
-    let mouseX = 0, mouseY = 0;
-    let targetX = 0, targetY = 0;
-
-    heroSection.addEventListener("mousemove", (e) => {
-      const rect = heroSection.getBoundingClientRect();
-      const x = (e.clientX - rect.left) / rect.width - 0.5;
-      const y = (e.clientY - rect.top) / rect.height - 0.5;
-      targetX = x * 18;
-      targetY = y * 12;
-    });
-
-    function updateParallax() {
-      mouseX += (targetX - mouseX) * 0.05;
-      mouseY += (targetY - mouseY) * 0.05;
-      heroImg.style.transform = `scale(1.04) translate(${mouseX}px, ${mouseY}px)`;
-      requestAnimationFrame(updateParallax);
-    }
-    requestAnimationFrame(updateParallax);
-  }
 
   // Floating Golden Sparkles Canvas
   if (canvas) {
@@ -420,10 +398,15 @@ function renderProducts() {
     }
 
     btn.onclick = () => {
+      const slider = btn.closest(".filter-categories");
+      if (slider && slider.dataset.dragged === "true") {
+        return;
+      }
       document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
       btn.classList.add("active");
       state.currentCategory = btn.getAttribute("data-category");
       renderProducts();
+      btn.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
     };
   });
 
@@ -434,6 +417,218 @@ function renderProducts() {
       renderProducts();
     };
   }
+}
+
+// --- Horizontal Scroll & Drag for Category Filters ---
+function initFilterCategoriesScroll() {
+  document.querySelectorAll(".filter-categories").forEach(slider => {
+    let isDown = false;
+    let startX = 0;
+    let scrollLeft = 0;
+    let hasDragged = false;
+    const dragThreshold = 5;
+
+    const parent = slider.closest(".filter-categories-wrap") || slider.parentElement;
+    const btnLeft = parent ? parent.querySelector(".filter-scroll-left") : null;
+    const btnRight = parent ? parent.querySelector(".filter-scroll-right") : null;
+
+    const updateArrows = () => {
+      if (!btnLeft && !btnRight) return;
+      const maxScroll = slider.scrollWidth - slider.clientWidth;
+      if (maxScroll <= 4) {
+        if (btnLeft) btnLeft.classList.add("hidden");
+        if (btnRight) btnRight.classList.add("hidden");
+        return;
+      }
+      if (btnLeft) {
+        if (slider.scrollLeft <= 4) {
+          btnLeft.classList.add("hidden");
+        } else {
+          btnLeft.classList.remove("hidden");
+        }
+      }
+      if (btnRight) {
+        if (slider.scrollLeft >= maxScroll - 4) {
+          btnRight.classList.add("hidden");
+        } else {
+          btnRight.classList.remove("hidden");
+        }
+      }
+    };
+
+    // Mouse Drag To Scroll
+    slider.addEventListener("mousedown", (e) => {
+      isDown = true;
+      hasDragged = false;
+      slider.dataset.dragged = "false";
+      slider.classList.add("is-dragging");
+      startX = e.pageX - slider.offsetLeft;
+      scrollLeft = slider.scrollLeft;
+    });
+
+    window.addEventListener("mouseup", () => {
+      if (!isDown) return;
+      isDown = false;
+      slider.classList.remove("is-dragging");
+      setTimeout(() => {
+        slider.dataset.dragged = "false";
+      }, 60);
+    });
+
+    window.addEventListener("mousemove", (e) => {
+      if (!isDown) return;
+      const x = e.pageX - slider.offsetLeft;
+      const walk = (x - startX) * 1.5;
+      if (Math.abs(walk) > dragThreshold) {
+        hasDragged = true;
+        slider.dataset.dragged = "true";
+      }
+      slider.scrollLeft = scrollLeft - walk;
+      updateArrows();
+    });
+
+    // Horizontal mouse wheel scrolling
+    slider.addEventListener("wheel", (e) => {
+      if (Math.abs(e.deltaY) > Math.abs(e.deltaX) && slider.scrollWidth > slider.clientWidth) {
+        e.preventDefault();
+        slider.scrollLeft += e.deltaY;
+        updateArrows();
+      }
+    }, { passive: false });
+
+    slider.addEventListener("scroll", updateArrows, { passive: true });
+
+    // Arrow controls
+    if (btnLeft) {
+      btnLeft.addEventListener("click", (e) => {
+        e.preventDefault();
+        slider.scrollBy({ left: -220, behavior: "smooth" });
+      });
+    }
+    if (btnRight) {
+      btnRight.addEventListener("click", (e) => {
+        e.preventDefault();
+        slider.scrollBy({ left: 220, behavior: "smooth" });
+      });
+    }
+
+    // Auto-scroll active item into view on load
+    const activeBtn = slider.querySelector(".filter-btn.active");
+    if (activeBtn) {
+      setTimeout(() => {
+        activeBtn.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+        updateArrows();
+      }, 100);
+    } else {
+      setTimeout(updateArrows, 100);
+    }
+
+    window.addEventListener("resize", updateArrows);
+  });
+}
+
+// --- Testimonials Horizontal Carousel ---
+function initTestimonialsCarousel() {
+  const track = document.getElementById("testimonialsTrack");
+  const prevBtn = document.getElementById("testiPrevBtn");
+  const nextBtn = document.getElementById("testiNextBtn");
+  const dotsContainer = document.getElementById("testimonialsDots");
+
+  if (!track) return;
+
+  const cards = track.querySelectorAll(".testimonial-card");
+  const dots = dotsContainer ? dotsContainer.querySelectorAll(".testi-dot") : [];
+
+  let isDown = false;
+  let startX = 0;
+  let scrollLeft = 0;
+  let hasDragged = false;
+
+  const updateControls = () => {
+    const maxScroll = track.scrollWidth - track.clientWidth;
+    if (prevBtn) {
+      if (track.scrollLeft <= 8) {
+        prevBtn.classList.add("hidden");
+      } else {
+        prevBtn.classList.remove("hidden");
+      }
+    }
+    if (nextBtn) {
+      if (track.scrollLeft >= maxScroll - 8) {
+        nextBtn.classList.add("hidden");
+      } else {
+        nextBtn.classList.remove("hidden");
+      }
+    }
+
+    // Update active dot
+    if (dots.length > 0 && cards.length > 0) {
+      const cardWidth = cards[0].offsetWidth + 20;
+      const activeIndex = Math.min(
+        dots.length - 1,
+        Math.max(0, Math.round(track.scrollLeft / cardWidth))
+      );
+      dots.forEach((dot, idx) => {
+        if (idx === activeIndex) {
+          dot.classList.add("active");
+        } else {
+          dot.classList.remove("active");
+        }
+      });
+    }
+  };
+
+  // Drag to scroll
+  track.addEventListener("mousedown", (e) => {
+    isDown = true;
+    hasDragged = false;
+    track.classList.add("is-dragging");
+    startX = e.pageX - track.offsetLeft;
+    scrollLeft = track.scrollLeft;
+  });
+
+  window.addEventListener("mouseup", () => {
+    if (!isDown) return;
+    isDown = false;
+    track.classList.remove("is-dragging");
+  });
+
+  track.addEventListener("mousemove", (e) => {
+    if (!isDown) return;
+    const x = e.pageX - track.offsetLeft;
+    const walk = (x - startX) * 1.4;
+    if (Math.abs(walk) > 4) hasDragged = true;
+    track.scrollLeft = scrollLeft - walk;
+    updateControls();
+  });
+
+  track.addEventListener("scroll", updateControls, { passive: true });
+
+  if (prevBtn) {
+    prevBtn.addEventListener("click", () => {
+      const cardWidth = cards[0] ? cards[0].offsetWidth + 20 : 280;
+      track.scrollBy({ left: -cardWidth, behavior: "smooth" });
+    });
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener("click", () => {
+      const cardWidth = cards[0] ? cards[0].offsetWidth + 20 : 280;
+      track.scrollBy({ left: cardWidth, behavior: "smooth" });
+    });
+  }
+
+  // Dots click navigation
+  dots.forEach((dot, idx) => {
+    dot.addEventListener("click", () => {
+      if (cards[idx]) {
+        cards[idx].scrollIntoView({ behavior: "smooth", inline: "start", block: "nearest" });
+      }
+    });
+  });
+
+  setTimeout(updateControls, 100);
+  window.addEventListener("resize", updateControls);
 }
 
 // --- Cart & Wishlist Drawers ---
