@@ -3260,10 +3260,20 @@ ul, ol {
     display: flex;
     align-items: center;
   }
+  /* Ensure header nav is hidden on tablet and mobile */
+  .site-header .header-nav-center,
+  nav.header-nav-center,
+  .header-nav-center,
+  .nav-links-editorial {
+    display: none !important;
+  }
+  .mobile-menu-btn {
+    display: flex !important;
+  }
   .hero-cinematic-img {
-    object-position: 70% center;
-    filter: brightness(0.68) contrast(1.1) saturate(1.15);
-    transform: scale(1.05);
+    object-position: center center;
+    filter: brightness(0.75) contrast(1.05);
+    transform: none !important;
   }
   /* Omni-directional dark gradient so light mural sky does not conflict with white text */
   .hero-cinematic-gradient-left {
