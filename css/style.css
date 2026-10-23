@@ -5062,21 +5062,34 @@ ul, ol {
   }
 
   .sheet-pricing-block {
-    padding: 1rem 1.2rem !important;
-    margin-bottom: 1.3rem !important;
+    padding: 1.15rem 1.25rem !important;
+    margin-bottom: 1.35rem !important;
   }
 
   .sheet-price-main {
-    font-size: 1.6rem !important;
-    margin-bottom: 0.35rem !important;
+    font-size: 1.85rem !important;
+    margin-bottom: 0.75rem !important;
   }
 
   .sheet-installments-pill {
-    font-size: 0.78rem !important;
+    padding: 0.6rem 0.75rem !important;
+  }
+
+  .sheet-inst-title {
+    font-size: 0.82rem !important;
+  }
+
+  .sheet-inst-cards {
+    font-size: 0.68rem !important;
   }
 
   .sheet-cash-discount {
-    font-size: 0.74rem !important;
+    padding: 0.6rem 0.75rem !important;
+    font-size: 0.8rem !important;
+  }
+
+  .sheet-cash-sub {
+    font-size: 0.68rem !important;
   }
 
   .sheet-product-desc {
