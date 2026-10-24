@@ -4358,9 +4358,9 @@ ul, ol {
 }
 
 .catalog-page-hero {
-  padding: 8.5rem 0 3.5rem;
-  background: radial-gradient(circle at 50% 15%, rgba(200, 169, 118, 0.18) 0%, rgba(250, 247, 242, 0.95) 70%), #FAF7F2;
-  border-bottom: 1px solid rgba(200, 169, 118, 0.25);
+  padding: 5.2rem 0 1.2rem;
+  background: radial-gradient(circle at 50% 15%, rgba(200, 169, 118, 0.12) 0%, rgba(250, 247, 242, 0.98) 70%), #FAF7F2;
+  border-bottom: 1px solid rgba(200, 169, 118, 0.2);
   position: relative;
 }
 
@@ -4381,13 +4381,13 @@ ul, ol {
 
 .catalog-page-title {
   font-family: var(--font-serif);
-  font-size: clamp(2.6rem, 5vw, 4.2rem);
-  font-weight: 300;
-  line-height: 1.1;
-  letter-spacing: 0.08em;
+  font-size: clamp(2rem, 3.8vw, 3rem);
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: #1A1816;
-  margin-bottom: 1rem;
+  margin-bottom: 0;
 }
 
 .catalog-page-title em {
@@ -4407,14 +4407,14 @@ ul, ol {
 }
 
 .catalog-main-area {
-  padding: 3.5rem 0 6rem;
+  padding: 1.4rem 0 4.5rem;
   background-color: #FAF7F2;
 }
 
 .catalog-page-body .catalog-filters-bar {
-  border-bottom: 1px solid rgba(200, 169, 118, 0.25);
-  padding-bottom: 1.8rem;
-  margin-bottom: 3.5rem;
+  border-bottom: 1px solid rgba(200, 169, 118, 0.2);
+  padding-bottom: 1.1rem;
+  margin-bottom: 1.8rem;
 }
 
 .catalog-page-body .filter-btn {
