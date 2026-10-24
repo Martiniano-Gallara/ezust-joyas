@@ -22,7 +22,7 @@
   <meta property="og:image" content="assets/img/hero_bride_gold.jpg">
 
   <!-- Stylesheet (cache-busted for mobile updates) -->
-  <link rel="stylesheet" href="css/style.css?v=20261024_fix_v8">
+  <link rel="stylesheet" href="css/style.css?v=20261024_fix_v9">
   <link rel="icon" type="image/svg+xml" href="assets/logo-symbol.svg">
 </head>
 
@@ -559,28 +559,38 @@
   </aside>
 
   <!-- Mobile Navigation Drawer -->
-  <div class="mobile-nav-drawer" id="mobileNavDrawer">
-    <div style="display: flex; justify-content: space-between; align-items: center;">
-      <img src="assets/logo-official-gold.png" alt="Ezust Logo" style="height: 44px; width: auto; object-fit: contain;">
-      <button id="mobileNavClose" style="font-size: 1.5rem; color: var(--text-primary);">✕</button>
+  <div class="mobile-nav-drawer" id="mobileNavDrawer" aria-label="Menú de navegación móvil">
+    <div class="mobile-nav-header">
+      <img src="assets/logo-official-gold.png" alt="EZUST JOYAS" style="height: 38px; width: auto; object-fit: contain;">
+      <button id="mobileNavClose" type="button" aria-label="Cerrar menú">✕</button>
     </div>
     <div class="mobile-nav-links">
-      <a href="#inicio" class="mobile-nav-link"
-        onclick="document.getElementById('mobileNavDrawer').classList.remove('active'); document.getElementById('drawerOverlay').classList.remove('active');"><span>Inicio</span>
-        <span>→</span></a>
-      <a href="#catalogo" class="mobile-nav-link"
-        onclick="state.currentCategory='all'; renderProducts(); document.getElementById('mobileNavDrawer').classList.remove('active'); document.getElementById('drawerOverlay').classList.remove('active');"><span>Catálogo</span>
-        <span>→</span></a>
-      <a href="javascript:void(0)" class="mobile-nav-link"
-        onclick="document.getElementById('mobileNavDrawer').classList.remove('active'); openDrawer(document.getElementById('wishlistDrawer'));">
+      <a href="#inicio" class="mobile-nav-link">
+        <span>Inicio</span>
+        <span>→</span>
+      </a>
+      <a href="catalogo.html" class="mobile-nav-link">
+        <span>Catálogo</span>
+        <span>→</span>
+      </a>
+      <a href="javascript:void(0)" class="mobile-nav-link" id="mobileWishlistLink">
         <span>Mis Favoritos ♡</span>
         <span style="font-size: 0.85rem; color: var(--gold-light);">Ver lista →</span>
       </a>
-      <a href="contacto.html" class="mobile-nav-link"><span>Información & Contacto</span> <span>→</span></a>
+      <a href="contacto.html" class="mobile-nav-link">
+        <span>Información & Contacto</span>
+        <span>→</span>
+      </a>
       <a href="https://wa.me/5493576467389" target="_blank" rel="noopener" class="mobile-nav-link" style="color: var(--gold-bright);">
         <span>Atención WhatsApp</span>
         <span>💬</span>
       </a>
+    </div>
+    <div class="mobile-nav-footer">
+      <div class="mobile-nav-footer-brand">
+        <span>✦</span> ALTA JOYERÍA
+      </div>
+      <p class="mobile-nav-footer-text">Oro 18K & Plata 925 · Envíos a todo el país</p>
     </div>
   </div>
 
@@ -607,7 +617,7 @@
 
 
   <!-- JavaScript Application -->
-  <script src="js/app.js?v=20261024_fix_v8"></script>
+  <script src="js/app.js?v=20261024_fix_v9"></script>
 </body>
 
 </html>

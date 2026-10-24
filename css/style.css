@@ -3215,77 +3215,144 @@ ul, ol {
 }
 
 /* --- Mobile Menu Drawer --- */
-/* --- Mobile Menu Drawer --- */
 .mobile-nav-drawer {
   position: fixed;
   top: 0;
   left: 0;
-  width: 85%;
-  max-width: 320px;
+  width: 86%;
+  max-width: 340px;
   height: 100%;
-  background: #0E0D0C;
+  height: 100vh;
+  height: 100dvh;
+  max-height: 100dvh;
+  background: linear-gradient(180deg, #161412 0%, #0D0C0B 100%);
   color: #FAF8F5;
-  z-index: 1050;
-  box-shadow: 15px 0 50px rgba(0, 0, 0, 0.65);
-  border-right: 1px solid rgba(200, 169, 118, 0.25);
+  z-index: 98000;
+  box-shadow: 20px 0 60px rgba(0, 0, 0, 0.85);
+  border-right: 1px solid rgba(200, 169, 118, 0.28);
   display: flex;
   flex-direction: column;
   transform: translateX(-100%);
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  padding: 2.2rem 1.8rem;
+  transition: transform 0.38s cubic-bezier(0.16, 1, 0.3, 1);
+  padding: calc(1.8rem + env(safe-area-inset-top, 0px)) 1.8rem calc(1.8rem + env(safe-area-inset-bottom, 0px));
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .mobile-nav-drawer.active {
   transform: translateX(0);
 }
 
-.mobile-nav-drawer button#mobileNavClose {
-  background: none;
-  border: none;
-  font-size: 1.5rem;
-  color: rgba(250, 248, 245, 0.8);
-  cursor: pointer;
-  padding: 0.3rem;
-  transition: color 0.3s ease;
+.mobile-nav-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid rgba(200, 169, 118, 0.2);
 }
 
-.mobile-nav-drawer button#mobileNavClose:hover {
-  color: var(--gold-bright);
+.mobile-nav-drawer button#mobileNavClose {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(200, 169, 118, 0.3);
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  color: var(--gold-light) !important;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.25s ease;
+  line-height: 1;
+}
+
+.mobile-nav-drawer button#mobileNavClose:hover,
+.mobile-nav-drawer button#mobileNavClose:active {
+  background: rgba(200, 169, 118, 0.2);
+  color: #FFFFFF !important;
+  border-color: var(--gold-bright);
+  transform: rotate(90deg);
 }
 
 .mobile-nav-links {
   display: flex;
   flex-direction: column;
-  gap: 1.4rem;
-  margin-top: 2.8rem;
+  gap: 0.35rem;
+  margin-top: 1.6rem;
+  flex: 1;
 }
 
 .mobile-nav-link {
   font-family: var(--font-serif);
-  font-size: 1.35rem;
-  color: rgba(250, 248, 245, 0.9);
+  font-size: 1.3rem;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  color: #FAF8F5 !important;
   display: flex;
   justify-content: space-between;
   align-items: center;
   text-decoration: none;
-  padding-bottom: 0.8rem;
+  padding: 0.95rem 0.6rem;
+  border-radius: 4px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-  transition: all 0.3s ease;
+  transition: all 0.25s ease;
+}
+
+.mobile-nav-link span:first-child {
+  color: #FAF8F5;
+  transition: color 0.25s ease;
 }
 
 .mobile-nav-link span:last-child {
   color: var(--gold-primary);
   font-size: 1.1rem;
-  transition: transform 0.3s ease;
+  transition: transform 0.25s ease, color 0.25s ease;
 }
 
-.mobile-nav-link:hover {
-  color: var(--gold-light);
-  padding-left: 0.35rem;
+.mobile-nav-link:hover,
+.mobile-nav-link:active {
+  background: rgba(200, 169, 118, 0.08);
+  padding-left: 0.9rem;
 }
 
-.mobile-nav-link:hover span:last-child {
+.mobile-nav-link:hover span:first-child,
+.mobile-nav-link:active span:first-child {
+  color: var(--gold-bright);
+}
+
+.mobile-nav-link:hover span:last-child,
+.mobile-nav-link:active span:last-child {
+  color: var(--gold-bright);
   transform: translateX(4px);
+}
+
+.mobile-nav-footer {
+  margin-top: auto;
+  padding-top: 1.6rem;
+  border-top: 1px solid rgba(200, 169, 118, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.mobile-nav-footer-brand {
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold-bright);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 500;
+}
+
+.mobile-nav-footer-text {
+  font-size: 0.75rem;
+  color: rgba(250, 248, 245, 0.6);
+  line-height: 1.4;
+  margin: 0;
 }
 
 /* --- Responsive Media Queries --- */
