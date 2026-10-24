@@ -145,8 +145,7 @@ const PRODUCTS_DATA = [
 // --- Currency Config ---
 const CURRENCY_RATES = {
   ARS: { symbol: "$", rate: 1, format: (val) => `$ ${val.toLocaleString("es-AR")}` },
-  USD: { symbol: "USD $", rate: 0.00095, format: (val) => `USD $ ${(val * 0.00095).toFixed(0)}` },
-  EUR: { symbol: "€", rate: 0.00088, format: (val) => `€ ${(val * 0.00088).toFixed(0)}` }
+  USD: { symbol: "USD $", rate: 0.00095, format: (val) => `USD $ ${(val * 0.00095).toFixed(0)}` }
 };
 
 let currentCurrency = "ARS";
