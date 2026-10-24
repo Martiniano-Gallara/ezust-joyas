@@ -2362,7 +2362,9 @@ ul, ol {
 .newsletter-perks-row {
   display: flex;
   justify-content: center;
-  gap: 2rem;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
   margin-top: 2rem;
   font-size: 0.72rem;
   letter-spacing: 0.14em;
