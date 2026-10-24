@@ -1028,7 +1028,7 @@ function openProductSheet(productId) {
         <div class="sheet-tag-row">
           <span class="sheet-cat-tag">${product.category.toUpperCase()}</span>
           <span class="sheet-guarantee-pill">✦ GARANTÍA OFICIAL ESCRITA</span>
-          ${product.badge ? `<span class="sheet-guarantee-pill" style="background: rgba(230,202,158,0.2); border-color: var(--gold-bright); color: #FFF;">${product.badge}</span>` : ''}
+          ${product.badge ? `<span class="sheet-guarantee-pill sheet-badge-pill">${product.badge}</span>` : ''}
         </div>
 
         <h1 class="sheet-product-title">${product.name}</h1>
