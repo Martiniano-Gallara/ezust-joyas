@@ -800,9 +800,9 @@ function renderCart() {
         </svg>
         <h4>Tu bolsa de compras está vacía</h4>
         <p>Descubrí piezas únicas creadas para acompañar tus mejores momentos.</p>
-        <button type="button" class="btn-luxury btn-primary" onclick="closeDrawer(document.getElementById('cartDrawer'))" style="margin: 0 auto; display: inline-flex;">
-          Explorar Colección
-        </button>
+        <a href="catalogo.html" class="btn-luxury btn-primary" onclick="closeDrawer(document.getElementById('cartDrawer'))" style="margin: 0 auto; display: inline-flex; text-decoration: none;">
+          <span>Explorar Catálogo</span>
+        </a>
       </div>
     `;
     if (footer) footer.style.display = "none";
@@ -1378,7 +1378,7 @@ function initNewsletter() {
     const input = document.getElementById("newsletterEmail");
     if (!input || !input.value) return;
 
-    showToast("¡Bienvenida al Círculo!", "Te enviamos tu código exclusivo de 10% OFF: EZUST-VIP10");
+    showToast("¡Tarjeta de Fidelidad Activada!", "Te enviamos tu membresía VIP con 10% OFF inicial y hasta 20% OFF en tu 2ª y 3ª compra.");
     input.value = "";
   };
 }
