@@ -3899,6 +3899,21 @@ ul, ol {
     padding: 0.2rem 0.42rem !important;
     font-size: 0.65rem !important;
   }
+  .catalog-page-hero {
+    padding: 4.4rem 0 0.8rem !important;
+  }
+  .catalog-page-title {
+    font-size: 1.65rem !important;
+    letter-spacing: 0.08em !important;
+    margin-bottom: 0 !important;
+  }
+  .catalog-main-area {
+    padding: 0.8rem 0 3rem !important;
+  }
+  .catalog-page-body .catalog-filters-bar {
+    padding-bottom: 0.7rem !important;
+    margin-bottom: 1.1rem !important;
+  }
 }
 
 @media (max-width: 380px) {
