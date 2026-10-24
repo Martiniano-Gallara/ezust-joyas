@@ -310,18 +310,33 @@ function initHeader() {
   if (mobileBtn && mobileDrawer) {
     mobileBtn.addEventListener("click", () => {
       mobileDrawer.classList.add("active");
-      overlay.classList.add("active");
+      if (overlay) overlay.classList.add("active");
     });
 
-    mobileClose.addEventListener("click", () => {
-      mobileDrawer.classList.remove("active");
-      overlay.classList.remove("active");
-    });
+    if (mobileClose) {
+      mobileClose.addEventListener("click", () => {
+        mobileDrawer.classList.remove("active");
+        if (overlay) overlay.classList.remove("active");
+      });
+    }
+
+    const mobileWishlistLink = document.getElementById("mobileWishlistLink");
+    if (mobileWishlistLink) {
+      mobileWishlistLink.addEventListener("click", (e) => {
+        e.preventDefault();
+        mobileDrawer.classList.remove("active");
+        const wishlistDrawer = document.getElementById("wishlistDrawer");
+        if (wishlistDrawer && typeof openDrawer === "function") {
+          openDrawer(wishlistDrawer);
+        }
+      });
+    }
 
     document.querySelectorAll(".mobile-nav-link").forEach(link => {
+      if (link.id === "mobileWishlistLink") return;
       link.addEventListener("click", () => {
         mobileDrawer.classList.remove("active");
-        overlay.classList.remove("active");
+        if (overlay) overlay.classList.remove("active");
       });
     });
   }
