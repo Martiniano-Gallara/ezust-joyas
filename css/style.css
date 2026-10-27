@@ -1156,12 +1156,12 @@ ul, ol {
 .collection-media {
   position: relative;
   width: 100%;
-  height: 420px;
+  height: 250px;
   overflow: hidden;
 }
 
 .collection-card.large .collection-media {
-  height: 500px;
+  height: 280px;
 }
 
 .collection-media img {
@@ -1180,39 +1180,39 @@ ul, ol {
   inset: 0;
   background: linear-gradient(
     to top,
-    rgba(18, 17, 16, 0.85) 0%,
-    rgba(18, 17, 16, 0.3) 50%,
+    rgba(18, 17, 16, 0.9) 0%,
+    rgba(18, 17, 16, 0.35) 55%,
     rgba(18, 17, 16, 0.05) 100%
   );
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding: 2.2rem;
+  padding: 1.35rem 1.5rem;
   color: var(--text-light);
 }
 
 .collection-sub {
-  font-size: 0.7rem;
-  letter-spacing: 0.22em;
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--gold-light);
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.25rem;
 }
 
 .collection-name {
   font-family: var(--font-serif);
-  font-size: 1.85rem;
+  font-size: 1.35rem;
   font-weight: 400;
   line-height: 1.2;
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.35rem;
 }
 
 .collection-desc {
-  font-size: 0.85rem;
-  color: rgba(250, 248, 245, 0.8);
-  margin-bottom: 1.2rem;
-  line-height: 1.5;
-  max-width: 400px;
+  font-size: 0.78rem;
+  color: rgba(250, 248, 245, 0.85);
+  margin-bottom: 0.75rem;
+  line-height: 1.4;
+  max-width: 380px;
 }
 
 .collection-link-btn {
@@ -3430,8 +3430,15 @@ ul, ol {
     gap: 2.5rem;
   }
   .collections-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+  .col-span-7, .col-span-5, .col-span-4, .col-span-8 {
+    grid-column: span 1;
+  }
+  .collection-media,
+  .collection-card.large .collection-media {
+    height: 220px;
   }
 }
 
@@ -3562,20 +3569,37 @@ ul, ol {
   }
 
   /* Collection Cards on Mobile */
-  .collection-media {
-    height: 310px;
+  .collections-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
   }
+  .collection-media,
   .collection-card.large .collection-media {
-    height: 330px;
+    height: 185px !important;
   }
   .collection-overlay {
-    padding: 1.4rem;
+    padding: 1rem 1.15rem !important;
+  }
+  .collection-sub {
+    font-size: 0.58rem !important;
+    margin-bottom: 0.2rem !important;
   }
   .collection-name {
-    font-size: 1.35rem;
+    font-size: 1.15rem !important;
+    margin-bottom: 0.2rem !important;
   }
   .collection-desc {
-    font-size: 0.82rem;
+    font-size: 0.73rem !important;
+    margin-bottom: 0.5rem !important;
+    line-height: 1.35 !important;
+    max-width: 90% !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+  }
+  .collection-link-btn {
+    font-size: 0.68rem !important;
   }
 }
 
