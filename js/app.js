@@ -1025,12 +1025,6 @@ function openProductSheet(productId) {
 
       <!-- Right Column: Editorial Data & Calibrator -->
       <div class="sheet-info-col">
-        <div class="sheet-tag-row">
-          <span class="sheet-cat-tag">${product.category.toUpperCase()}</span>
-          <span class="sheet-guarantee-pill">✦ GARANTÍA OFICIAL ESCRITA</span>
-          ${product.badge ? `<span class="sheet-guarantee-pill sheet-badge-pill">${product.badge}</span>` : ''}
-        </div>
-
         <h1 class="sheet-product-title">${product.name}</h1>
 
         <div class="sheet-pricing-block">
