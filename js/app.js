@@ -567,11 +567,27 @@ function initHeader() {
 }
 
 // --- Render Products Catalog ---
+// Helper to dynamically read catalog products from admin database if present
+function getCatalogProducts() {
+  try {
+    const raw = localStorage.getItem("ezust_db_products");
+    if (raw) {
+      const parsed = JSON.parse(raw);
+      if (Array.isArray(parsed) && parsed.length > 0) {
+        return parsed.filter(p => p.active !== false);
+      }
+    }
+  } catch (e) {
+    console.warn("[Ezüst] Falling back to default PRODUCTS_DATA", e);
+  }
+  return PRODUCTS_DATA;
+}
+
 function renderProducts() {
   const grid = document.getElementById("productsGrid");
   if (!grid) return;
 
-  let filtered = [...PRODUCTS_DATA];
+  let filtered = [...getCatalogProducts()];
 
   // Category filter
   if (state.currentCategory !== "all") {
@@ -955,7 +971,7 @@ function closeDrawer(drawer) {
 
 // --- Cart Functions ---
 function addToCart(productId, metal = null, size = null) {
-  const product = PRODUCTS_DATA.find(p => p.id === productId);
+  const product = getCatalogProducts().find(p => p.id === productId);
   if (!product) return;
 
   const chosenMetal = metal || product.metals[0];
@@ -1116,7 +1132,7 @@ function renderCart() {
 // --- Wishlist Functions ---
 function toggleWishlist(productId) {
   const index = state.wishlist.findIndex(item => item.id === productId);
-  const product = PRODUCTS_DATA.find(p => p.id === productId);
+  const product = getCatalogProducts().find(p => p.id === productId);
 
   if (index > -1) {
     state.wishlist.splice(index, 1);
@@ -1218,7 +1234,7 @@ function initModals() {
 }
 
 function openProductSheet(productId) {
-  const product = PRODUCTS_DATA.find(p => p.id === productId);
+  const product = getCatalogProducts().find(p => p.id === productId);
   if (!product) return;
 
   const canvas = document.getElementById("productFullscreenCanvas");
@@ -1549,7 +1565,7 @@ function initSearch() {
         return;
       }
 
-      const matches = PRODUCTS_DATA.filter(p =>
+      const matches = getCatalogProducts().filter(p =>
         p.name.toLowerCase().includes(q) ||
         p.category.toLowerCase().includes(q) ||
         p.description.toLowerCase().includes(q) ||
