@@ -1,0 +1,1589 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Portal Atelier & Gestión | EZÜST JOYAS</title>
+  
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#0B0A09">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/logo-symbol.svg">
+
+  <!-- Core Stylesheets -->
+  <link rel="stylesheet" href="css/admin.css?v=20261027_v1">
+</head>
+
+<body class="admin-body">
+
+  <!-- Mobile Drawer Overlay -->
+  <div class="admin-modal-backdrop" id="sidebarBackdrop" onclick="toggleSidebar(false)"></div>
+
+  <!-- ==========================================================================
+       SIDEBAR NAVIGATION
+       ========================================================================== -->
+  <aside class="admin-sidebar" id="adminSidebar">
+    
+    <div class="sidebar-header">
+      <a href="admin.html" class="brand-link">
+        <img src="assets/logo-symbol.svg" alt="EZÜST" class="brand-symbol">
+        <div class="brand-text-block">
+          <span class="brand-title">EZÜST JOYAS</span>
+          <span class="brand-badge">Portal Atelier</span>
+        </div>
+      </a>
+      <button class="topbar-icon-btn" onclick="toggleSidebar(false)" style="display: none;" id="sidebarCloseBtn" aria-label="Cerrar Menú">
+        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+    </div>
+
+    <nav class="sidebar-nav">
+      
+      <span class="nav-section-title">Principal</span>
+      
+      <a class="nav-item active" data-view="dashboard" onclick="switchView('dashboard')">
+        <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <rect x="3" y="3" width="7" height="9" rx="1"/>
+          <rect x="14" y="3" width="7" height="5" rx="1"/>
+          <rect x="14" y="12" width="7" height="9" rx="1"/>
+          <rect x="3" y="16" width="7" height="5" rx="1"/>
+        </svg>
+        <span>Dashboard</span>
+      </a>
+
+      <a class="nav-item" data-view="sales" onclick="switchView('sales')">
+        <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+          <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+        </svg>
+        <span>Ventas & Caja</span>
+      </a>
+
+      <span class="nav-section-title">Catálogo & Stock</span>
+
+      <a class="nav-item" data-view="products" onclick="switchView('products')">
+        <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/>
+          <path d="M16 10a4 4 0 0 1-8 0"/>
+        </svg>
+        <span>Productos</span>
+      </a>
+
+      <a class="nav-item" data-view="inventory" onclick="switchView('inventory')">
+        <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+          <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+          <line x1="12" y1="22.08" x2="12" y2="12"/>
+        </svg>
+        <span>Inventario</span>
+        <span class="nav-pill-badge" id="navStockAlertBadge">0</span>
+      </a>
+
+      <a class="nav-item" data-view="purchases" onclick="switchView('purchases')">
+        <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+          <polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/>
+          <line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/>
+        </svg>
+        <span>Compras & Prov.</span>
+      </a>
+
+      <span class="nav-section-title">Gestión & Control</span>
+
+      <a class="nav-item" data-view="finances" onclick="switchView('finances')">
+        <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <line x1="12" y1="1" x2="12" y2="23"/>
+          <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+        </svg>
+        <span>Finanzas</span>
+      </a>
+
+      <a class="nav-item" data-view="customers" onclick="switchView('customers')">
+        <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+          <circle cx="9" cy="7" r="4"/>
+          <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+          <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+        </svg>
+        <span>Clientes</span>
+      </a>
+
+      <a class="nav-item" data-view="reports" onclick="switchView('reports')">
+        <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <line x1="18" y1="20" x2="18" y2="10"/>
+          <line x1="12" y1="20" x2="12" y2="4"/>
+          <line x1="6" y1="20" x2="6" y2="14"/>
+        </svg>
+        <span>Reportes & Excel</span>
+      </a>
+
+      <a class="nav-item" data-view="settings" onclick="switchView('settings')">
+        <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="3"/>
+          <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+        </svg>
+        <span>Configuración</span>
+      </a>
+
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="user-mini-card">
+        <div class="user-avatar-circle" id="sidebarAvatar">MG</div>
+        <div class="user-info">
+          <span class="user-name" id="sidebarUserName">Martín Gallará</span>
+          <span class="user-role-badge" id="sidebarUserRole">Administrador</span>
+        </div>
+      </div>
+      <a href="index.html" class="topbar-icon-btn" title="Ir a la Tienda Pública" target="_blank">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+      </a>
+    </div>
+
+  </aside>
+
+  <!-- ==========================================================================
+       MAIN CONTENT WRAPPER
+       ========================================================================== -->
+  <div class="admin-main-wrapper">
+    
+    <!-- Topbar -->
+    <header class="admin-topbar">
+      <div class="topbar-left">
+        <button class="topbar-toggle-btn" onclick="toggleSidebar(true)" aria-label="Abrir Menú">
+          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+        <div class="topbar-breadcrumbs">
+          <span>Ezüst Joyas</span>
+          <span>/</span>
+          <span class="active" id="topbarCurrentViewLabel">Dashboard</span>
+        </div>
+      </div>
+
+      <div class="topbar-right">
+        <!-- Cashier Status Indicator -->
+        <div class="cash-status-chip" id="topbarCashChip" onclick="switchView('sales', 'caja')" style="cursor: pointer;" title="Gestionar Caja">
+          <span class="status-dot-pulse"></span>
+          <span id="topbarCashStatusText">Caja Abierta: $93.500</span>
+        </div>
+
+        <!-- POS Quick Action -->
+        <button class="topbar-btn" onclick="switchView('sales', 'pos')">
+          <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          <span>Nueva Venta (POS)</span>
+        </button>
+
+        <!-- View Store Public Link -->
+        <a href="index.html" class="topbar-icon-btn" title="Ver Tienda Online" target="_blank">
+          <svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        </a>
+      </div>
+    </header>
+
+    <!-- Content Viewport -->
+    <main class="admin-content-area">
+
+      <!-- ====================================================================
+           1. DASHBOARD VIEW
+           ==================================================================== -->
+      <section class="admin-view active" id="view-dashboard">
+        
+        <div class="view-header">
+          <div class="view-title-group">
+            <h1>Panel de Control & Ventas</h1>
+            <p>Métricas financieras, rendimiento comercial y stock en tiempo real.</p>
+          </div>
+          <div class="view-actions">
+            <button class="btn-secondary" onclick="exportQuickReport()">
+              <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              <span>Exportar Resumen</span>
+            </button>
+            <button class="btn-primary" onclick="openProductModal()">
+              <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              <span>Alta de Producto</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- KPI Grid -->
+        <div class="kpi-grid">
+          
+          <div class="kpi-card">
+            <div class="kpi-header">
+              <span class="kpi-label">Ventas de Hoy</span>
+              <div class="kpi-icon-wrap">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 14 14"/></svg>
+              </div>
+            </div>
+            <div class="kpi-value" id="kpiTodayRevenue">$0</div>
+            <div class="kpi-footer">
+              <span class="kpi-pill positive" id="kpiTodayCountPill">0 órdenes</span>
+              <span>hoy registradas</span>
+            </div>
+          </div>
+
+          <div class="kpi-card">
+            <div class="kpi-header">
+              <span class="kpi-label">Ingresos Mensuales (30d)</span>
+              <div class="kpi-icon-wrap">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+              </div>
+            </div>
+            <div class="kpi-value" id="kpiMonthlyRevenue">$0</div>
+            <div class="kpi-footer">
+              <span class="kpi-pill positive" id="kpiOrdersCountPill">12 órdenes</span>
+              <span>Ticket prom: <strong id="kpiAvgTicketVal">$0</strong></span>
+            </div>
+          </div>
+
+          <div class="kpi-card">
+            <div class="kpi-header">
+              <span class="kpi-label">Ganancia Neta Estimada</span>
+              <div class="kpi-icon-wrap">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+              </div>
+            </div>
+            <div class="kpi-value" id="kpiNetProfit">$0</div>
+            <div class="kpi-footer">
+              <span class="kpi-pill positive" id="kpiNetMarginPill">Margen: 45%</span>
+              <span>post egresos operativos</span>
+            </div>
+          </div>
+
+          <div class="kpi-card">
+            <div class="kpi-header">
+              <span class="kpi-label">Alertas de Stock</span>
+              <div class="kpi-icon-wrap" style="color: var(--admin-danger); background: var(--admin-danger-bg);">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+              </div>
+            </div>
+            <div class="kpi-value" id="kpiLowStockValue">0</div>
+            <div class="kpi-footer">
+              <span class="kpi-pill negative" id="kpiLowStockPill">Piezas Críticas</span>
+              <a href="#" onclick="switchView('inventory')" style="color: var(--admin-gold); text-decoration: none; margin-left: auto;">Reponer &rarr;</a>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Interactive Visual Analytics (Charts) -->
+        <div class="charts-grid">
+          
+          <div class="chart-card">
+            <div class="chart-header">
+              <div>
+                <h3 class="chart-title">Evolución de Ventas vs Costos</h3>
+                <p style="font-size: 0.76rem; color: var(--admin-text-muted);">Comparativa diaria de facturación y costo de mercadería vendida</p>
+              </div>
+              <div style="font-size: 0.72rem; color: var(--admin-gold); display: flex; gap: 1rem; align-items: center;">
+                <span style="display: inline-flex; align-items: center; gap: 0.35rem;"><span style="width: 10px; height: 10px; background: #C8A976; border-radius: 2px;"></span> Ingresos</span>
+                <span style="display: inline-flex; align-items: center; gap: 0.35rem;"><span style="width: 10px; height: 10px; background: #E05353; border-radius: 2px;"></span> Costos</span>
+              </div>
+            </div>
+            <div class="chart-canvas-wrap" id="salesChartCanvasWrap">
+              <svg id="salesSvgChart" width="100%" height="100%" viewBox="0 0 600 240" preserveAspectRatio="none"></svg>
+            </div>
+          </div>
+
+          <div class="chart-card">
+            <div class="chart-header">
+              <h3 class="chart-title">Ventas por Categoría</h3>
+              <span style="font-size: 0.72rem; color: var(--admin-text-muted);">Mix de Joyería</span>
+            </div>
+            <div class="chart-canvas-wrap" id="categoryChartCanvasWrap" style="display: flex; align-items: center; justify-content: center;">
+              <svg id="categorySvgDonut" width="180" height="180" viewBox="0 0 100 100"></svg>
+            </div>
+            <div id="categoryChartLegend" style="display: flex; justify-content: center; gap: 1rem; font-size: 0.74rem; margin-top: 0.5rem; flex-wrap: wrap;"></div>
+          </div>
+
+        </div>
+
+        <!-- Recent Activity & Operational Low Stock Table -->
+        <div class="table-container">
+          <div class="table-filter-bar">
+            <h3 style="font-family: var(--font-serif); font-size: 1.15rem; color: var(--admin-text-main);">Últimas Ventas Realizadas</h3>
+            <button class="btn-secondary btn-sm" onclick="switchView('sales')">Ver todas las ventas &rarr;</button>
+          </div>
+          <div class="data-table-scroll">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Nº Orden</th>
+                  <th>Fecha & Hora</th>
+                  <th>Cliente</th>
+                  <th>Joyas</th>
+                  <th>Medio de Pago</th>
+                  <th>Total</th>
+                  <th>Margen</th>
+                  <th>Acción</th>
+                </tr>
+              </thead>
+              <tbody id="dashboardRecentSalesTbody">
+                <!-- Populated via JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- ====================================================================
+           2. PRODUCTS VIEW
+           ==================================================================== -->
+      <section class="admin-view" id="view-products">
+        
+        <div class="view-header">
+          <div class="view-title-group">
+            <h1>Catálogo de Joyas & Precios</h1>
+            <p>Alta, edición, márgenes comerciales, stock y fotografía de productos.</p>
+          </div>
+          <div class="view-actions">
+            <button class="btn-secondary" onclick="exportProductsToCSV()">
+              <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              <span>Exportar Catálogo</span>
+            </button>
+            <button class="btn-primary" onclick="openProductModal()">
+              <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              <span>Nuevo Producto</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="table-container">
+          <div class="table-filter-bar">
+            <div class="search-input-wrap">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              <input type="text" id="productsSearchInput" placeholder="Buscar por nombre, SKU, gema o metal..." oninput="filterProductsTable()">
+            </div>
+            <div class="filter-select-group">
+              <select class="admin-select" id="productsCategorySelect" onchange="filterProductsTable()">
+                <option value="all">Todas las categorías</option>
+                <option value="anillos">Anillos</option>
+                <option value="aros">Aros</option>
+                <option value="collares">Collares</option>
+                <option value="pulseras">Pulseras</option>
+              </select>
+              <select class="admin-select" id="productsStockFilter" onchange="filterProductsTable()">
+                <option value="all">Todo el stock</option>
+                <option value="low">Stock crítico (≤ 3)</option>
+                <option value="available">Con stock disponible</option>
+                <option value="out">Sin stock (0)</option>
+              </select>
+              <select class="admin-select" id="productsStatusFilter" onchange="filterProductsTable()">
+                <option value="all">Todos los estados</option>
+                <option value="active">Activos en tienda</option>
+                <option value="inactive">Pausados / Inactivos</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="data-table-scroll">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Joya & SKU</th>
+                  <th>Categoría</th>
+                  <th>Precio Venta</th>
+                  <th>Costo Taller</th>
+                  <th>Margen %</th>
+                  <th>Stock Actual</th>
+                  <th>Estado</th>
+                  <th style="text-align: right;">Acciones</th>
+                </tr>
+              </thead>
+              <tbody id="productsTableBody">
+                <!-- Populated via JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- ====================================================================
+           3. INVENTORY VIEW
+           ==================================================================== -->
+      <section class="admin-view" id="view-inventory">
+        
+        <div class="view-header">
+          <div class="view-title-group">
+            <h1>Control de Inventario & Kardex</h1>
+            <p>Auditoría de stock, entradas por taller, mermas, ajustes y valoración contable.</p>
+          </div>
+          <div class="view-actions">
+            <button class="btn-secondary" onclick="exportInventoryToCSV()">
+              <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              <span>Exportar Kardex</span>
+            </button>
+            <button class="btn-primary" onclick="openStockAdjustModal()">
+              <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+              <span>Registrar Ajuste / Entrada</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Inventory Stats -->
+        <div class="kpi-grid">
+          <div class="kpi-card">
+            <div class="kpi-header"><span class="kpi-label">Unidades en Stock</span></div>
+            <div class="kpi-value" id="invTotalUnits">0 u.</div>
+            <div class="kpi-footer"><span>Total piezas físicas en atelier</span></div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-header"><span class="kpi-label">Valuación a Costo</span></div>
+            <div class="kpi-value" id="invCostValuation">$0</div>
+            <div class="kpi-footer"><span>Capital inmovilizado en mercadería</span></div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-header"><span class="kpi-label">Valuación a Venta</span></div>
+            <div class="kpi-value" id="invRetailValuation">$0</div>
+            <div class="kpi-footer"><span>Potencial de venta minorista</span></div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-header"><span class="kpi-label">Ítems Críticos</span></div>
+            <div class="kpi-value" id="invLowStockCount">0</div>
+            <div class="kpi-footer"><span class="kpi-pill negative">Por debajo del mínimo</span></div>
+          </div>
+        </div>
+
+        <!-- Sub Tabs: Stock Actual vs Historial -->
+        <div style="display: flex; gap: 0.5rem; margin-bottom: 1.5rem;">
+          <button class="btn-secondary active" id="tabBtnStockCurrent" onclick="switchInventorySubTab('current')">Stock Actual por Pieza</button>
+          <button class="btn-secondary" id="tabBtnStockKardex" onclick="switchInventorySubTab('kardex')">Historial de Movimientos (Kardex)</button>
+        </div>
+
+        <!-- Tab 1: Current Stock Table -->
+        <div class="table-container" id="inventoryCurrentContainer">
+          <div class="table-filter-bar">
+            <div class="search-input-wrap">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              <input type="text" id="inventorySearchInput" placeholder="Filtrar inventario..." oninput="renderInventoryCurrentTable()">
+            </div>
+            <div class="filter-select-group">
+              <select class="admin-select" id="inventoryStatusSelect" onchange="renderInventoryCurrentTable()">
+                <option value="all">Todos los niveles</option>
+                <option value="critical">Crítico (≤ 2)</option>
+                <option value="warning">Alerta (3)</option>
+                <option value="good">Óptimo (> 3)</option>
+              </select>
+            </div>
+          </div>
+          <div class="data-table-scroll">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Joya & SKU</th>
+                  <th>Categoría</th>
+                  <th>Stock Actual</th>
+                  <th>Stock Mínimo</th>
+                  <th>Costo Total Inv.</th>
+                  <th>Estado Stock</th>
+                  <th style="text-align: right;">Ajuste Rápido</th>
+                </tr>
+              </thead>
+              <tbody id="inventoryCurrentTableBody">
+                <!-- Populated via JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Tab 2: Kardex Table -->
+        <div class="table-container" id="inventoryKardexContainer" style="display: none;">
+          <div class="data-table-scroll">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Fecha & Hora</th>
+                  <th>Producto & SKU</th>
+                  <th>Tipo Operación</th>
+                  <th>Variación</th>
+                  <th>Stock Resultante</th>
+                  <th>Motivo / Referencia</th>
+                  <th>Responsable</th>
+                </tr>
+              </thead>
+              <tbody id="inventoryKardexTableBody">
+                <!-- Populated via JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- ====================================================================
+           4. SALES & CASHIER (POS) VIEW
+           ==================================================================== -->
+      <section class="admin-view" id="view-sales">
+        
+        <div class="view-header">
+          <div class="view-title-group">
+            <h1>Ventas & Terminal de Cobro</h1>
+            <p>Punto de venta (POS), facturación rápida, comprobantes y arqueo de caja.</p>
+          </div>
+          <div class="view-actions">
+            <button class="btn-secondary" id="salesSubTabPosBtn" onclick="switchSalesSubTab('pos')">Punto de Venta (POS)</button>
+            <button class="btn-secondary" id="salesSubTabOrdersBtn" onclick="switchSalesSubTab('orders')">Historial de Ventas</button>
+            <button class="btn-secondary" id="salesSubTabCashBtn" onclick="switchSalesSubTab('cash')">Arqueo de Caja</button>
+          </div>
+        </div>
+
+        <!-- 4A. POS TERMINAL -->
+        <div id="salesPosContainer">
+          <div class="pos-layout-grid">
+            
+            <!-- Left: Fast Product Selector -->
+            <div class="pos-catalog-panel">
+              <div style="display: flex; gap: 0.8rem; margin-bottom: 1.2rem; flex-wrap: wrap;">
+                <div class="search-input-wrap" style="flex: 1; min-width: 220px;">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                  <input type="text" id="posSearchInput" placeholder="Buscar joya o escanear SKU..." oninput="renderPosCatalog()">
+                </div>
+                <select class="admin-select" id="posCategorySelect" onchange="renderPosCatalog()">
+                  <option value="all">Todas las categorías</option>
+                  <option value="anillos">Anillos</option>
+                  <option value="aros">Aros</option>
+                  <option value="collares">Collares</option>
+                  <option value="pulseras">Pulseras</option>
+                </select>
+              </div>
+
+              <div class="pos-products-grid" id="posProductsGrid">
+                <!-- Rendered dynamically -->
+              </div>
+            </div>
+
+            <!-- Right: POS Active Order & Cashier -->
+            <div class="pos-cart-panel">
+              <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--admin-border-subtle); padding-bottom: 0.8rem;">
+                <h3 style="font-family: var(--font-serif); font-size: 1.3rem; color: var(--admin-text-main);">Orden de Venta</h3>
+                <button class="btn-secondary btn-sm" onclick="clearPosCart()">Vaciar</button>
+              </div>
+
+              <!-- Customer Selector -->
+              <div style="margin-top: 1rem;">
+                <label class="form-label">Cliente</label>
+                <div style="display: flex; gap: 0.5rem;">
+                  <select class="form-control" id="posCustomerSelect">
+                    <option value="">Cliente Mostrador / Ocasional</option>
+                    <!-- Populated from customers DB -->
+                  </select>
+                  <button class="btn-secondary btn-sm" onclick="openCustomerModal()" title="Nuevo Cliente">+</button>
+                </div>
+              </div>
+
+              <!-- Cart Line Items -->
+              <div class="cart-items-list" id="posCartItemsList">
+                <div style="text-align: center; padding: 3rem 1rem; color: var(--admin-text-muted);">
+                  Hacé clic en una joya para agregarla a la orden de venta.
+                </div>
+              </div>
+
+              <!-- Payment Method & Discount -->
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; margin-bottom: 1rem;">
+                <div>
+                  <label class="form-label">Medio de Pago</label>
+                  <select class="form-control" id="posPaymentMethodSelect" onchange="handlePaymentMethodChange()">
+                    <option value="Efectivo">Efectivo</option>
+                    <option value="Transferencia Bancaria">Transferencia Bancaria</option>
+                    <option value="Tarjeta de Débito">Tarjeta de Débito</option>
+                    <option value="Tarjeta de Crédito (3 cuotas)">Tarjeta de Crédito (3 c.)</option>
+                    <option value="Tarjeta de Crédito (6 cuotas)">Tarjeta de Crédito (6 c.)</option>
+                    <option value="Mercado Pago">Mercado Pago / QR</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="form-label">Descuento ($ ARS)</label>
+                  <input type="number" class="form-control" id="posDiscountInput" value="0" min="0" oninput="updatePosTotals()">
+                </div>
+              </div>
+
+              <!-- Cash Tendered & Change (Only visible if Efectivo) -->
+              <div id="posCashChangeBox" style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; margin-bottom: 1rem;">
+                <div>
+                  <label class="form-label">Paga Con ($)</label>
+                  <input type="number" class="form-control" id="posCashTenderedInput" placeholder="Monto abonado" oninput="calculatePosChange()">
+                </div>
+                <div>
+                  <label class="form-label">Vuelto a Entregar</label>
+                  <input type="text" class="form-control" id="posCashChangeDisplay" value="$0" readonly style="color: var(--admin-success); font-weight: 700;">
+                </div>
+              </div>
+
+              <!-- Totals Box -->
+              <div class="pos-totals-box">
+                <div class="totals-row">
+                  <span>Subtotal Joyas:</span>
+                  <span id="posSubtotalDisplay">$0</span>
+                </div>
+                <div class="totals-row">
+                  <span>Descuento aplicado:</span>
+                  <span id="posDiscountDisplay" style="color: var(--admin-danger);">- $0</span>
+                </div>
+                <div class="totals-row grand-total">
+                  <span>TOTAL A COBRAR:</span>
+                  <span id="posGrandTotalDisplay">$0</span>
+                </div>
+              </div>
+
+              <!-- Submit Sale Button -->
+              <button class="btn-primary" style="width: 100%; justify-content: center; padding: 0.85rem; font-size: 0.95rem;" onclick="processPosSale()">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Cobrar & Emitir Comprobante</span>
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- 4B. SALES ORDERS HISTORY -->
+        <div id="salesOrdersContainer" style="display: none;">
+          <div class="table-container">
+            <div class="table-filter-bar">
+              <div class="search-input-wrap">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                <input type="text" id="ordersSearchInput" placeholder="Buscar por orden, cliente..." oninput="renderOrdersTable()">
+              </div>
+              <div class="filter-select-group">
+                <select class="admin-select" id="ordersPaymentFilter" onchange="renderOrdersTable()">
+                  <option value="all">Todos los medios de pago</option>
+                  <option value="Efectivo">Efectivo</option>
+                  <option value="Transferencia Bancaria">Transferencia</option>
+                  <option value="Tarjeta">Tarjetas</option>
+                  <option value="Mercado Pago">Mercado Pago</option>
+                </select>
+                <button class="btn-secondary btn-sm" onclick="exportSalesToCSV()">Exportar CSV</button>
+              </div>
+            </div>
+
+            <div class="data-table-scroll">
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th>Nº Orden</th>
+                    <th>Fecha & Hora</th>
+                    <th>Cliente</th>
+                    <th>Artículos</th>
+                    <th>Medio de Pago</th>
+                    <th>Total</th>
+                    <th>Estado</th>
+                    <th style="text-align: right;">Comprobante & Devolución</th>
+                  </tr>
+                </thead>
+                <tbody id="ordersTableBody">
+                  <!-- Populated via JS -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4C. CASH REGISTER (ARQUEO DE CAJA) -->
+        <div id="salesCashContainer" style="display: none;">
+          <div class="kpi-grid">
+            <div class="kpi-card">
+              <div class="kpi-header"><span class="kpi-label">Estado de Caja</span></div>
+              <div class="kpi-value" id="cashStatusDisplay">Abierta</div>
+              <div class="kpi-footer"><span id="cashOpenedAtDisplay">Abierta a las 09:00 hs</span></div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-header"><span class="kpi-label">Fondo Inicial en Efectivo</span></div>
+              <div class="kpi-value" id="cashInitialDisplay">$45.000</div>
+              <div class="kpi-footer"><span>Saldo base de cambio</span></div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-header"><span class="kpi-label">Efectivo en Caja Teórico</span></div>
+              <div class="kpi-value" id="cashCurrentDisplay">$93.500</div>
+              <div class="kpi-footer"><span class="kpi-pill positive">Fondo + Ventas en efectivo</span></div>
+            </div>
+          </div>
+
+          <div style="background: var(--admin-bg-card); border: 1px solid var(--admin-border-subtle); border-radius: var(--radius-md); padding: 1.8rem; margin-top: 1rem;">
+            <h3 style="font-family: var(--font-serif); font-size: 1.3rem; color: var(--admin-text-main); margin-bottom: 0.6rem;">Arqueo y Cierre Diario</h3>
+            <p style="color: var(--admin-text-muted); font-size: 0.85rem; margin-bottom: 1.5rem;">Ingresá el conteo físico de billetes en gaveta para validar diferencias antes del cierre.</p>
+            
+            <div style="max-width: 450px; display: flex; flex-direction: column; gap: 1rem;">
+              <div>
+                <label class="form-label">Efectivo Físico Contado ($ ARS)</label>
+                <input type="number" class="form-control" id="cashPhysicalCountInput" placeholder="Total billetes en caja" oninput="calculateCashDifference()">
+              </div>
+              <div id="cashDiffAlertBox" style="font-size: 0.85rem; font-weight: 600; padding: 0.6rem 0.9rem; border-radius: var(--radius-sm); display: none;"></div>
+              <div>
+                <label class="form-label">Observaciones del Cierre</label>
+                <textarea class="form-control" id="cashClosingNotesInput" placeholder="Detalles de arqueo, retiro de cambio, etc."></textarea>
+              </div>
+              <div style="display: flex; gap: 0.8rem; margin-top: 0.5rem;">
+                <button class="btn-primary" onclick="submitCloseCashRegister()">Confirmar Cierre de Caja</button>
+                <button class="btn-secondary" onclick="openReopenCashModal()">Apertura / Nuevo Fondo</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- ====================================================================
+           5. PURCHASES & SUPPLIERS VIEW
+           ==================================================================== -->
+      <section class="admin-view" id="view-purchases">
+        
+        <div class="view-header">
+          <div class="view-title-group">
+            <h1>Compras & Proveedores de Joyería</h1>
+            <p>Registro de órdenes a taller, ingreso de metales nobles y catálogo de artesanos.</p>
+          </div>
+          <div class="view-actions">
+            <button class="btn-secondary" onclick="openSupplierModal()">
+              <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg>
+              <span>Nuevo Proveedor</span>
+            </button>
+            <button class="btn-primary" onclick="openPurchaseModal()">
+              <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              <span>Registrar Compra / Remito</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="table-container">
+          <div class="table-filter-bar">
+            <h3 style="font-family: var(--font-serif); font-size: 1.15rem; color: var(--admin-text-main);">Proveedores & Talleres Asociados</h3>
+          </div>
+          <div class="data-table-scroll">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Proveedor / Taller</th>
+                  <th>Contacto</th>
+                  <th>Teléfono</th>
+                  <th>Especialidad</th>
+                  <th>Localidad</th>
+                  <th style="text-align: right;">Acciones</th>
+                </tr>
+              </thead>
+              <tbody id="suppliersTableBody">
+                <!-- Populated via JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Purchases History Table -->
+        <div class="table-container" style="margin-top: 2rem;">
+          <div class="table-filter-bar">
+            <h3 style="font-family: var(--font-serif); font-size: 1.15rem; color: var(--admin-text-main);">Historial de Compras & Recepción de Mercadería</h3>
+          </div>
+          <div class="data-table-scroll">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Nº Remito / Factura</th>
+                  <th>Fecha</th>
+                  <th>Proveedor</th>
+                  <th>Ítems Recibidos</th>
+                  <th>Monto Total Costo</th>
+                  <th>Estado Stock</th>
+                  <th>Registró</th>
+                </tr>
+              </thead>
+              <tbody id="purchasesTableBody">
+                <!-- Populated via JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- ====================================================================
+           6. FINANCES & CASH FLOW VIEW
+           ==================================================================== -->
+      <section class="admin-view" id="view-finances">
+        
+        <div class="view-header">
+          <div class="view-title-group">
+            <h1>Finanzas & Estado de Resultados</h1>
+            <p>Ingresos brutos, costo de mercadería, gastos operativos y flujo de caja.</p>
+          </div>
+          <div class="view-actions">
+            <button class="btn-secondary" onclick="exportFinancesToCSV()">
+              <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              <span>Exportar Balance</span>
+            </button>
+            <button class="btn-primary" onclick="openExpenseModal()">
+              <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              <span>Registrar Gasto Operativo</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Profit & Loss Summary Cards -->
+        <div class="kpi-grid">
+          <div class="kpi-card">
+            <div class="kpi-header"><span class="kpi-label">Ingresos Totales (30d)</span></div>
+            <div class="kpi-value" id="finTotalRevenue">$0</div>
+            <div class="kpi-footer"><span>Ventas cobradas del mes</span></div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-header"><span class="kpi-label">Costo de Mercadería (CMV)</span></div>
+            <div class="kpi-value" id="finTotalCOGS" style="color: var(--admin-danger);">$0</div>
+            <div class="kpi-footer"><span>Costo directo de piezas vendidas</span></div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-header"><span class="kpi-label">Margen Bruto</span></div>
+            <div class="kpi-value" id="finGrossProfit">$0</div>
+            <div class="kpi-footer"><span class="kpi-pill positive" id="finGrossMarginPercent">58%</span><span>sobre ventas</span></div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-header"><span class="kpi-label">Gastos Operativos</span></div>
+            <div class="kpi-value" id="finOperatingExpenses" style="color: var(--admin-warning);">$0</div>
+            <div class="kpi-footer"><span>Packaging, alquiler, envíos</span></div>
+          </div>
+        </div>
+
+        <!-- Net Profit Highlight Banner -->
+        <div style="background: linear-gradient(135deg, rgba(200, 169, 118, 0.12) 0%, rgba(20, 18, 16, 0.8) 100%); border: 1px solid var(--admin-border); border-radius: var(--radius-md); padding: 1.6rem 2rem; display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; flex-wrap: wrap; gap: 1rem;">
+          <div>
+            <span style="font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.18em; color: var(--admin-gold);">Rentabilidad Neta Mensual</span>
+            <div style="font-family: var(--font-display); font-size: 2.2rem; font-weight: 700; color: #FFFFFF;" id="finNetProfitBig">$0</div>
+            <p style="font-size: 0.8rem; color: var(--admin-text-muted);">Ganancia líquida final descontando CMV y todos los gastos fijos del mes.</p>
+          </div>
+          <div style="text-align: right;">
+            <span style="font-size: 0.72rem; color: var(--admin-text-muted); text-transform: uppercase;">Margen Neto Final</span>
+            <div style="font-family: var(--font-display); font-size: 1.8rem; font-weight: 700; color: var(--admin-success);" id="finNetMarginPercent">0%</div>
+          </div>
+        </div>
+
+        <!-- Operational Expenses Table -->
+        <div class="table-container">
+          <div class="table-filter-bar">
+            <h3 style="font-family: var(--font-serif); font-size: 1.15rem; color: var(--admin-text-main);">Registro de Egresos Operativos</h3>
+          </div>
+          <div class="data-table-scroll">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Fecha</th>
+                  <th>Categoría</th>
+                  <th>Concepto / Detalle</th>
+                  <th>Destinatario / Proveedor</th>
+                  <th>Medio de Pago</th>
+                  <th>Monto ($ ARS)</th>
+                  <th style="text-align: right;">Acciones</th>
+                </tr>
+              </thead>
+              <tbody id="expensesTableBody">
+                <!-- Populated via JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- ====================================================================
+           7. CUSTOMERS VIEW
+           ==================================================================== -->
+      <section class="admin-view" id="view-customers">
+        
+        <div class="view-header">
+          <div class="view-title-group">
+            <h1>Directorio de Clientes & CRM</h1>
+            <p>Historial de compras, valor acumulado (LTV) y contacto directo por WhatsApp.</p>
+          </div>
+          <div class="view-actions">
+            <button class="btn-primary" onclick="openCustomerModal()">
+              <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg>
+              <span>Nuevo Cliente</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="table-container">
+          <div class="table-filter-bar">
+            <div class="search-input-wrap">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              <input type="text" id="customersSearchInput" placeholder="Buscar por nombre, teléfono, email..." oninput="renderCustomersTable()">
+            </div>
+            <div class="filter-select-group">
+              <select class="admin-select" id="customersTierFilter" onchange="renderCustomersTable()">
+                <option value="all">Todos los niveles</option>
+                <option value="VIP Platino">VIP Platino</option>
+                <option value="Frecuente Oro">Frecuente Oro</option>
+                <option value="Cliente Frecuente">Cliente Frecuente</option>
+                <option value="Cliente Nuevo">Cliente Nuevo</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="data-table-scroll">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Cliente</th>
+                  <th>Contacto & WhatsApp</th>
+                  <th>Ubicación</th>
+                  <th>Nivel Cliente</th>
+                  <th>Compras</th>
+                  <th>Total Gastado (LTV)</th>
+                  <th>Última Compra</th>
+                  <th style="text-align: right;">Acciones</th>
+                </tr>
+              </thead>
+              <tbody id="customersTableBody">
+                <!-- Populated via JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- ====================================================================
+           8. REPORTS & EXPORTS VIEW
+           ==================================================================== -->
+      <section class="admin-view" id="view-reports">
+        
+        <div class="view-header">
+          <div class="view-title-group">
+            <h1>Reportes Comerciales & Exportación</h1>
+            <p>Generación de planillas compatibles con Excel y CSV con filtros avanzados.</p>
+          </div>
+        </div>
+
+        <!-- Filter Controls -->
+        <div class="table-container" style="padding: 1.5rem; margin-bottom: 2rem;">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; align-items: flex-end;">
+            <div>
+              <label class="form-label">Período de Análisis</label>
+              <select class="form-control" id="reportsPeriodSelect" onchange="updateReportsMetrics()">
+                <option value="today">Ventas de Hoy</option>
+                <option value="7">Últimos 7 días</option>
+                <option value="30" selected>Últimos 30 días</option>
+                <option value="90">Últimos 3 meses</option>
+                <option value="all">Histórico Completo</option>
+              </select>
+            </div>
+            <div>
+              <label class="form-label">Filtrar por Categoría</label>
+              <select class="form-control" id="reportsCategorySelect" onchange="updateReportsMetrics()">
+                <option value="all">Todas las categorías</option>
+                <option value="anillos">Anillos</option>
+                <option value="aros">Aros</option>
+                <option value="collares">Collares</option>
+                <option value="pulseras">Pulseras</option>
+              </select>
+            </div>
+            <div>
+              <label class="form-label">Medio de Pago</label>
+              <select class="form-control" id="reportsPaymentSelect" onchange="updateReportsMetrics()">
+                <option value="all">Todos los medios</option>
+                <option value="Efectivo">Efectivo</option>
+                <option value="Transferencia Bancaria">Transferencia</option>
+                <option value="Tarjeta">Tarjetas</option>
+                <option value="Mercado Pago">Mercado Pago</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dynamic Metrics for Filter -->
+        <div class="kpi-grid">
+          <div class="kpi-card">
+            <div class="kpi-header"><span class="kpi-label">Ventas Filtradas</span></div>
+            <div class="kpi-value" id="repFilteredRevenue">$0</div>
+            <div class="kpi-footer"><span id="repFilteredOrdersCount">0 órdenes en el período</span></div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-header"><span class="kpi-label">Piezas Vendidas</span></div>
+            <div class="kpi-value" id="repFilteredUnits">0 u.</div>
+            <div class="kpi-footer"><span>Total de joyas entregadas</span></div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-header"><span class="kpi-label">Ticket Promedio</span></div>
+            <div class="kpi-value" id="repFilteredAvgTicket">$0</div>
+            <div class="kpi-footer"><span>Gasto medio por venta</span></div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-header"><span class="kpi-label">Margen Bruto Filtrado</span></div>
+            <div class="kpi-value" id="repFilteredMargin">$0</div>
+            <div class="kpi-footer"><span class="kpi-pill positive" id="repFilteredMarginPercent">0%</span></div>
+          </div>
+        </div>
+
+        <!-- Export Cards Grid -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 2rem;">
+          
+          <div class="chart-card">
+            <h3 class="chart-title" style="margin-bottom: 0.5rem;">Libro de Ventas Completo</h3>
+            <p style="font-size: 0.8rem; color: var(--admin-text-muted); margin-bottom: 1.2rem;">Exporta cada venta detallada con fecha, cliente, artículos, precios, costos, medios de pago y utilidades.</p>
+            <button class="btn-primary" style="width: 100%; justify-content: center;" onclick="exportSalesToCSV()">
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              <span>Descargar Ventas en Excel / CSV</span>
+            </button>
+          </div>
+
+          <div class="chart-card">
+            <h3 class="chart-title" style="margin-bottom: 0.5rem;">Inventario Físico & Valuación</h3>
+            <p style="font-size: 0.8rem; color: var(--admin-text-muted); margin-bottom: 1.2rem;">Exporta el listado íntegro de joyas con SKU, stock actual, costo taller, precio minorista y margen de ganancia.</p>
+            <button class="btn-secondary" style="width: 100%; justify-content: center;" onclick="exportInventoryToCSV()">
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              <span>Descargar Inventario en Excel / CSV</span>
+            </button>
+          </div>
+
+          <div class="chart-card">
+            <h3 class="chart-title" style="margin-bottom: 0.5rem;">Balance Financiero & Gastos</h3>
+            <p style="font-size: 0.8rem; color: var(--admin-text-muted); margin-bottom: 1.2rem;">Exporta el resumen financiero del período con desglose de ingresos, CMV, egresos operativos y resultado neto.</p>
+            <button class="btn-secondary" style="width: 100%; justify-content: center;" onclick="exportFinancesToCSV()">
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              <span>Descargar Finanzas en Excel / CSV</span>
+            </button>
+          </div>
+
+        </div>
+
+      </section>
+
+      <!-- ====================================================================
+           9. SETTINGS & SECURITY VIEW
+           ==================================================================== -->
+      <section class="admin-view" id="view-settings">
+        
+        <div class="view-header">
+          <div class="view-title-group">
+            <h1>Configuración, Seguridad & Auditoría</h1>
+            <p>Roles de usuario, parámetros de comprobante y respaldo integral de datos.</p>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.75rem;">
+          
+          <!-- Store Parameters -->
+          <div class="table-container" style="padding: 1.8rem;">
+            <h3 style="font-family: var(--font-serif); font-size: 1.25rem; color: var(--admin-text-main); margin-bottom: 1.2rem;">Datos del Atelier</h3>
+            <form id="settingsForm" onsubmit="saveStoreSettings(event)">
+              <div style="display: flex; flex-direction: column; gap: 1rem;">
+                <div>
+                  <label class="form-label">Nombre Comercial</label>
+                  <input type="text" class="form-control" id="cfgStoreName" value="EZÜST JOYAS">
+                </div>
+                <div>
+                  <label class="form-label">Subtítulo / Especialidad</label>
+                  <input type="text" class="form-control" id="cfgSubtitle" value="Atelier de Joyas en Plata 925 & Oro 18K">
+                </div>
+                <div>
+                  <label class="form-label">CUIT / Identificación Fiscal</label>
+                  <input type="text" class="form-control" id="cfgCuit" value="27-39281742-4">
+                </div>
+                <div>
+                  <label class="form-label">Dirección Showroom</label>
+                  <input type="text" class="form-control" id="cfgAddress" value="Mariano Moreno 450, Arroyito, Córdoba">
+                </div>
+                <div>
+                  <label class="form-label">Teléfono / WhatsApp de Contacto</label>
+                  <input type="text" class="form-control" id="cfgPhone" value="+54 9 3576 41-5867">
+                </div>
+                <div>
+                  <label class="form-label">Texto Pie de Comprobante / Ticket</label>
+                  <textarea class="form-control" id="cfgReceiptFooter">¡Gracias por elegir Ezüst Joyas! Cada pieza cuenta una historia única. Garantía de autenticidad en Plata 925 y Oro 18K.</textarea>
+                </div>
+                <button type="submit" class="btn-primary" style="margin-top: 0.5rem; justify-content: center;">Guardar Cambios</button>
+              </div>
+            </form>
+          </div>
+
+          <!-- Roles, User Session & Database Backup -->
+          <div style="display: flex; flex-direction: column; gap: 1.75rem;">
+            
+            <!-- User Session Switcher -->
+            <div class="table-container" style="padding: 1.8rem;">
+              <h3 style="font-family: var(--font-serif); font-size: 1.25rem; color: var(--admin-text-main); margin-bottom: 0.5rem;">Perfil & Rol Activo</h3>
+              <p style="font-size: 0.8rem; color: var(--admin-text-muted); margin-bottom: 1rem;">Simula diferentes permisos de usuario en el panel.</p>
+              
+              <div style="display: flex; flex-direction: column; gap: 0.8rem;">
+                <label class="form-label">Cambiar Perfil Activo</label>
+                <select class="form-control" id="sessionRoleSelect" onchange="handleSessionRoleChange(this.value)">
+                  <option value="Administrador">Martín Gallará (Administrador - Acceso Total)</option>
+                  <option value="Vendedora">Valeria (Vendedora - POS, Catálogo y Clientes)</option>
+                  <option value="Contador">Estudio Contable (Contador - Finanzas y Reportes)</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Database Backup & Restore -->
+            <div class="table-container" style="padding: 1.8rem;">
+              <h3 style="font-family: var(--font-serif); font-size: 1.25rem; color: var(--admin-text-main); margin-bottom: 0.5rem;">Respaldo de Base de Datos</h3>
+              <p style="font-size: 0.8rem; color: var(--admin-text-muted); margin-bottom: 1.2rem;">Descarga un archivo JSON con todos los productos, ventas, clientes e inventario.</p>
+              
+              <div style="display: flex; flex-direction: column; gap: 0.8rem;">
+                <button class="btn-secondary" style="justify-content: center;" onclick="downloadDatabaseBackup()">
+                  <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                  <span>Exportar Copia de Seguridad (JSON)</span>
+                </button>
+
+                <div style="position: relative;">
+                  <button class="btn-secondary" style="width: 100%; justify-content: center;" onclick="document.getElementById('importBackupFileInput').click()">
+                    <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                    <span>Restaurar desde Copia de Seguridad</span>
+                  </button>
+                  <input type="file" id="importBackupFileInput" accept=".json" style="display: none;" onchange="handleRestoreBackupFile(event)">
+                </div>
+
+                <button class="btn-danger btn-sm" style="margin-top: 0.5rem; justify-content: center;" onclick="confirmResetDatabase()">
+                  <span>Restablecer Datos de Fábrica</span>
+                </button>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- Audit Log Table -->
+        <div class="table-container" style="margin-top: 2rem;">
+          <div class="table-filter-bar">
+            <h3 style="font-family: var(--font-serif); font-size: 1.15rem; color: var(--admin-text-main);">Registro de Auditoría de Operaciones (Audit Log)</h3>
+            <span style="font-size: 0.72rem; color: var(--admin-text-muted);">Registro cronológico de movimientos</span>
+          </div>
+          <div class="data-table-scroll">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Fecha & Hora</th>
+                  <th>Usuario</th>
+                  <th>Operación</th>
+                  <th>Categoría</th>
+                  <th>Detalles del Evento</th>
+                </tr>
+              </thead>
+              <tbody id="auditLogTableBody">
+                <!-- Populated via JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </section>
+
+    </main>
+
+  </div>
+
+  <!-- ==========================================================================
+       MODALS SYSTEM
+       ========================================================================== -->
+
+  <!-- 1. PRODUCT MODAL (Alta / Edición) -->
+  <div class="admin-modal-backdrop" id="modalProduct">
+    <div class="admin-modal-box">
+      <div class="modal-header">
+        <h3 id="modalProductTitle">Alta de Nueva Joya</h3>
+        <button class="modal-close-btn" onclick="closeModal('modalProduct')">&times;</button>
+      </div>
+      <form id="productForm" onsubmit="handleProductSubmit(event)">
+        <input type="hidden" id="prodId">
+        <div class="modal-body">
+          <div class="form-grid">
+            
+            <div class="form-group col-span-2">
+              <label class="form-label">Nombre de la Joya *</label>
+              <input type="text" class="form-control" id="prodName" required placeholder="Ej: Anillo Solitario Princesa Oro 18K">
+            </div>
+
+            <div>
+              <label class="form-label">Código SKU *</label>
+              <input type="text" class="form-control" id="prodSku" placeholder="Autogenerado o ej: EZ-ANI-025">
+            </div>
+
+            <div>
+              <label class="form-label">Categoría *</label>
+              <select class="form-control" id="prodCategory" required>
+                <option value="anillos">Anillos</option>
+                <option value="aros">Aros</option>
+                <option value="collares">Collares</option>
+                <option value="pulseras">Pulseras</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="form-label">Precio Minorista ($ ARS) *</label>
+              <input type="number" class="form-control" id="prodPrice" required min="100" oninput="calculateProductMarginPreview()">
+            </div>
+
+            <div>
+              <label class="form-label">Costo Taller / Proveedor ($ ARS) *</label>
+              <input type="number" class="form-control" id="prodCost" required min="100" oninput="calculateProductMarginPreview()">
+            </div>
+
+            <!-- Margin Indicator Preview -->
+            <div class="margin-indicator-box">
+              <div>
+                <span class="margin-indicator-label">Margen Bruto de Ganancia:</span>
+                <div style="font-size: 0.75rem; color: var(--admin-text-subtle);">Ganancia neta por pieza: <strong id="prodProfitARS">$0</strong></div>
+              </div>
+              <span class="margin-indicator-val" id="prodMarginPercent">0%</span>
+            </div>
+
+            <div>
+              <label class="form-label">Stock Físico Inicial</label>
+              <input type="number" class="form-control" id="prodStock" value="5" min="0">
+            </div>
+
+            <div>
+              <label class="form-label">Stock Mínimo de Alerta</label>
+              <input type="number" class="form-control" id="prodMinStock" value="3" min="1">
+            </div>
+
+            <div class="form-group col-span-2">
+              <label class="form-label">Metales & Gemas (separados por coma)</label>
+              <input type="text" class="form-control" id="prodMetals" placeholder="Plata Enchapada en Oro 18K, Circonia Princesa, Pavé">
+            </div>
+
+            <div class="form-group col-span-2">
+              <label class="form-label">Tallas Disponibles (separadas por coma)</label>
+              <input type="text" class="form-control" id="prodSizes" placeholder="12, 14, 16, 18, 20">
+            </div>
+
+            <div class="form-group col-span-2">
+              <label class="form-label">Badge Promocional</label>
+              <input type="text" class="form-control" id="prodBadge" placeholder="Línea Premium, Bestseller, Edición Limitada">
+            </div>
+
+            <div class="form-group col-span-2">
+              <label class="form-label">Ruta o URL de Fotografía Principal</label>
+              <input type="text" class="form-control" id="prodImage" placeholder="assets/products_hq/ez-real-01_main.jpg o pegar URL">
+            </div>
+
+            <div class="form-group col-span-2">
+              <label class="form-label">Descripción de la Joya</label>
+              <textarea class="form-control" id="prodDescription" placeholder="Descripción artesanal de diseño, acabado y quilataje..."></textarea>
+            </div>
+
+            <div>
+              <label class="form-label">Estado en Tienda</label>
+              <select class="form-control" id="prodActive">
+                <option value="true">Activo (Visible en catálogo público)</option>
+                <option value="false">Pausado (Oculto)</option>
+              </select>
+            </div>
+
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn-secondary" onclick="closeModal('modalProduct')">Cancelar</button>
+          <button type="submit" class="btn-primary">Guardar Joya</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- 2. STOCK ADJUSTMENT MODAL -->
+  <div class="admin-modal-backdrop" id="modalStockAdjust">
+    <div class="admin-modal-box">
+      <div class="modal-header">
+        <h3>Ajuste Manual de Inventario</h3>
+        <button class="modal-close-btn" onclick="closeModal('modalStockAdjust')">&times;</button>
+      </div>
+      <form id="stockAdjustForm" onsubmit="handleStockAdjustSubmit(event)">
+        <input type="hidden" id="stockAdjustProdId">
+        <div class="modal-body">
+          <div style="display: flex; flex-direction: column; gap: 1rem;">
+            <div>
+              <label class="form-label">Producto a Ajustar</label>
+              <select class="form-control" id="stockAdjustSelectProduct" required onchange="updateStockAdjustProductInfo(this.value)">
+                <!-- Populated via JS -->
+              </select>
+            </div>
+            
+            <div id="stockAdjustInfoBox" style="background: var(--admin-bg-surface); padding: 0.8rem; border-radius: var(--radius-sm); font-size: 0.82rem; color: var(--admin-text-muted);">
+              Stock actual registrado: <strong id="stockAdjustCurrentVal" style="color: var(--admin-gold-light);">0</strong> unidades.
+            </div>
+
+            <div>
+              <label class="form-label">Tipo de Movimiento</label>
+              <select class="form-control" id="stockAdjustType">
+                <option value="ENTRADA_COMPRA">Entrada (+ Recepción de taller / reposición)</option>
+                <option value="SALIDA_MERMA">Salida (- Merma / rotura / muestra showroom)</option>
+                <option value="AJUSTE_CONTEO">Ajuste de Conteo Físico (+/-)</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="form-label">Cantidad a Modificar (+ o -)</label>
+              <input type="number" class="form-control" id="stockAdjustQty" required placeholder="Ej: 5 para sumar, -2 para restar">
+            </div>
+
+            <div>
+              <label class="form-label">Motivo u Observación *</label>
+              <input type="text" class="form-control" id="stockAdjustReason" required placeholder="Ej: Recepción lote taller San Telmo">
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn-secondary" onclick="closeModal('modalStockAdjust')">Cancelar</button>
+          <button type="submit" class="btn-primary">Confirmar Movimiento</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- 3. SUPPLIER MODAL -->
+  <div class="admin-modal-backdrop" id="modalSupplier">
+    <div class="admin-modal-box">
+      <div class="modal-header">
+        <h3 id="modalSupplierTitle">Nuevo Proveedor / Taller</h3>
+        <button class="modal-close-btn" onclick="closeModal('modalSupplier')">&times;</button>
+      </div>
+      <form id="supplierForm" onsubmit="handleSupplierSubmit(event)">
+        <input type="hidden" id="supplierId">
+        <div class="modal-body">
+          <div class="form-grid">
+            <div class="form-group col-span-2">
+              <label class="form-label">Razón Social / Nombre del Taller *</label>
+              <input type="text" class="form-control" id="supName" required placeholder="Ej: Taller Orfebre San Telmo">
+            </div>
+            <div>
+              <label class="form-label">Persona de Contacto</label>
+              <input type="text" class="form-control" id="supContact" placeholder="Ej: Carlos Benítez">
+            </div>
+            <div>
+              <label class="form-label">Teléfono / WhatsApp *</label>
+              <input type="text" class="form-control" id="supPhone" required placeholder="+54 9 11 ...">
+            </div>
+            <div>
+              <label class="form-label">Email</label>
+              <input type="email" class="form-control" id="supEmail" placeholder="contacto@taller.com">
+            </div>
+            <div>
+              <label class="form-label">Especialidad / Rubro</label>
+              <input type="text" class="form-control" id="supCategory" placeholder="Plata 925, Circonias, Packaging">
+            </div>
+            <div class="form-group col-span-2">
+              <label class="form-label">Dirección / Taller</label>
+              <input type="text" class="form-control" id="supAddress" placeholder="Ciudad, Provincia">
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn-secondary" onclick="closeModal('modalSupplier')">Cancelar</button>
+          <button type="submit" class="btn-primary">Guardar Proveedor</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- 4. PURCHASE ORDER MODAL -->
+  <div class="admin-modal-backdrop" id="modalPurchase">
+    <div class="admin-modal-box">
+      <div class="modal-header">
+        <h3>Registrar Compra / Recepción a Taller</h3>
+        <button class="modal-close-btn" onclick="closeModal('modalPurchase')">&times;</button>
+      </div>
+      <form id="purchaseForm" onsubmit="handlePurchaseSubmit(event)">
+        <div class="modal-body">
+          <div class="form-grid">
+            <div>
+              <label class="form-label">Proveedor / Taller *</label>
+              <select class="form-control" id="purchaseSupplierSelect" required>
+                <!-- Populated via JS -->
+              </select>
+            </div>
+            <div>
+              <label class="form-label">Nº Factura / Remito *</label>
+              <input type="text" class="form-control" id="purchaseInvoice" required placeholder="Ej: REM-4910">
+            </div>
+            <div class="form-group col-span-2">
+              <label class="form-label">Joya a Ingresar *</label>
+              <select class="form-control" id="purchaseProductSelect" required>
+                <!-- Populated via JS -->
+              </select>
+            </div>
+            <div>
+              <label class="form-label">Cantidad Recibida *</label>
+              <input type="number" class="form-control" id="purchaseQty" required min="1" value="5">
+            </div>
+            <div>
+              <label class="form-label">Costo Unitario Pagado ($ ARS) *</label>
+              <input type="number" class="form-control" id="purchaseUnitCost" required min="100">
+            </div>
+            <div class="form-group col-span-2">
+              <label class="form-label">Observaciones</label>
+              <input type="text" class="form-control" id="purchaseNotes" placeholder="Detalle de aleación, factura o envío">
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn-secondary" onclick="closeModal('modalPurchase')">Cancelar</button>
+          <button type="submit" class="btn-primary">Registrar e Ingresar Stock</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- 5. EXPENSE MODAL -->
+  <div class="admin-modal-backdrop" id="modalExpense">
+    <div class="admin-modal-box">
+      <div class="modal-header">
+        <h3>Registrar Gasto Operativo</h3>
+        <button class="modal-close-btn" onclick="closeModal('modalExpense')">&times;</button>
+      </div>
+      <form id="expenseForm" onsubmit="handleExpenseSubmit(event)">
+        <div class="modal-body">
+          <div class="form-grid">
+            <div>
+              <label class="form-label">Categoría del Gasto *</label>
+              <select class="form-control" id="expCategory" required>
+                <option value="Packaging & Insumos">Packaging & Insumos</option>
+                <option value="Marketing & Publicidad">Marketing & Publicidad</option>
+                <option value="Envíos & Logística">Envíos & Logística</option>
+                <option value="Alquiler & Servicios">Alquiler & Servicios Showroom</option>
+                <option value="Herramientas & Taller">Herramientas & Limpieza</option>
+                <option value="Otros Egresos">Otros Egresos</option>
+              </select>
+            </div>
+            <div>
+              <label class="form-label">Monto ($ ARS) *</label>
+              <input type="number" class="form-control" id="expAmount" required min="100" placeholder="Ej: 35000">
+            </div>
+            <div class="form-group col-span-2">
+              <label class="form-label">Concepto / Descripción *</label>
+              <input type="text" class="form-control" id="expConcept" required placeholder="Ej: Lote 100 cintas de seda grabadas">
+            </div>
+            <div>
+              <label class="form-label">Destinatario / Beneficiario</label>
+              <input type="text" class="form-control" id="expRecipient" placeholder="Nombre de proveedor">
+            </div>
+            <div>
+              <label class="form-label">Medio de Pago</label>
+              <select class="form-control" id="expPaymentMethod">
+                <option value="Transferencia">Transferencia Bancaria</option>
+                <option value="Efectivo">Efectivo (Deduce de Caja)</option>
+                <option value="Tarjeta de Crédito">Tarjeta de Crédito</option>
+                <option value="Mercado Pago">Mercado Pago</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn-secondary" onclick="closeModal('modalExpense')">Cancelar</button>
+          <button type="submit" class="btn-primary">Guardar Gasto</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- 6. CUSTOMER MODAL -->
+  <div class="admin-modal-backdrop" id="modalCustomer">
+    <div class="admin-modal-box">
+      <div class="modal-header">
+        <h3 id="modalCustomerTitle">Nuevo Cliente</h3>
+        <button class="modal-close-btn" onclick="closeModal('modalCustomer')">&times;</button>
+      </div>
+      <form id="customerForm" onsubmit="handleCustomerSubmit(event)">
+        <input type="hidden" id="custId">
+        <div class="modal-body">
+          <div class="form-grid">
+            <div class="form-group col-span-2">
+              <label class="form-label">Nombre y Apellido *</label>
+              <input type="text" class="form-control" id="custName" required placeholder="Ej: Valentina Morales">
+            </div>
+            <div>
+              <label class="form-label">Teléfono / WhatsApp *</label>
+              <input type="text" class="form-control" id="custPhone" required placeholder="+54 9 ...">
+            </div>
+            <div>
+              <label class="form-label">Email</label>
+              <input type="email" class="form-control" id="custEmail" placeholder="cliente@correo.com">
+            </div>
+            <div>
+              <label class="form-label">Ciudad / Provincia</label>
+              <input type="text" class="form-control" id="custCity" placeholder="Ej: Arroyito, Córdoba">
+            </div>
+            <div>
+              <label class="form-label">Categoría / Nivel</label>
+              <select class="form-control" id="custTier">
+                <option value="Cliente Nuevo">Cliente Nuevo</option>
+                <option value="Cliente Frecuente">Cliente Frecuente</option>
+                <option value="Frecuente Oro">Frecuente Oro</option>
+                <option value="VIP Platino">VIP Platino</option>
+              </select>
+            </div>
+            <div class="form-group col-span-2">
+              <label class="form-label">Notas & Preferencias</label>
+              <textarea class="form-control" id="custNotes" placeholder="Tallas de anillo, gustos en piedras, ocasiones de compra..."></textarea>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn-secondary" onclick="closeModal('modalCustomer')">Cancelar</button>
+          <button type="submit" class="btn-primary">Guardar Cliente</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- 7. SALES RECEIPT / TICKET MODAL (Printable Luxury Voucher) -->
+  <div class="admin-modal-backdrop" id="modalReceipt">
+    <div class="admin-modal-box" style="max-width: 520px; background: transparent; border: none; box-shadow: none;">
+      <div style="display: flex; justify-content: flex-end; gap: 0.5rem; margin-bottom: 0.8rem;">
+        <button class="btn-primary btn-sm" onclick="window.print()">
+          <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+          <span>Imprimir Ticket</span>
+        </button>
+        <button class="btn-secondary btn-sm" onclick="closeModal('modalReceipt')">Cerrar</button>
+      </div>
+
+      <!-- Printable Voucher Content -->
+      <div class="receipt-printable-box" id="printableReceiptArea">
+        <div class="receipt-header">
+          <div class="receipt-brand">EZÜST JOYAS</div>
+          <div class="receipt-sub">Comprobante de Venta · Atelier</div>
+          <div style="font-size: 0.72rem; color: #7D756C; margin-top: 0.35rem;">CUIT: 27-39281742-4 · Mariano Moreno 450, Arroyito</div>
+        </div>
+
+        <div class="receipt-details-grid">
+          <div><strong>Nº Orden:</strong> <span id="recOrderId">ORD-2026-0000</span></div>
+          <div><strong>Fecha & Hora:</strong> <span id="recDateTime">27/10/2026 15:30</span></div>
+          <div><strong>Cliente:</strong> <span id="recCustomer">Cliente Mostrador</span></div>
+          <div><strong>Atendido por:</strong> <span id="recSalesperson">Martín Gallará</span></div>
+          <div><strong>Medio de Pago:</strong> <span id="recPayment">Efectivo</span></div>
+        </div>
+
+        <table class="receipt-items-table">
+          <thead>
+            <tr>
+              <th style="text-align: left;">Joya</th>
+              <th style="text-align: center;">Cant</th>
+              <th style="text-align: right;">Total</th>
+            </tr>
+          </thead>
+          <tbody id="recItemsTbody">
+            <!-- Populated via JS -->
+          </tbody>
+        </table>
+
+        <div class="receipt-totals">
+          <span>TOTAL ABONADO:</span>
+          <span id="recTotalAmount">$0</span>
+        </div>
+
+        <div class="receipt-footer" id="recFooterText">
+          ¡Gracias por elegir Ezüst Joyas! Cada pieza cuenta una historia única. Garantía oficial de autenticidad en Plata 925 y Oro 18K.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast System Container -->
+  <div class="admin-toast-container" id="adminToastContainer"></div>
+
+  <!-- Core Scripts -->
+  <script src="js/app.js"></script>
+  <script src="js/admin-db.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+
+</html>
