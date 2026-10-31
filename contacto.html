@@ -32,23 +32,32 @@
   <header class="site-header scrolled" id="siteHeader">
     <div class="header-inner container-fluid">
 
-      <!-- Header Left: Logo -->
-      <div class="header-logo-area">
-        <a href="index.html" aria-label="EZUST JOYAS Inicio" class="header-logo-link">
-          <img src="assets/logo-official-white.png?v=2" alt="EZUST JOYAS" class="header-logo-img" width="140" height="56">
-        </a>
+      <!-- Header Left: Navigation & Mobile Toggle -->
+      <div class="header-left-col">
+        <button class="header-icon-fine mobile-menu-btn" id="mobileMenuBtn" aria-label="Abrir Menú">
+          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.2" viewBox="0 0 24 24">
+            <line x1="3" y1="7" x2="21" y2="7"></line>
+            <line x1="3" y1="17" x2="21" y2="17"></line>
+          </svg>
+        </button>
+
+        <nav class="header-nav-left" aria-label="Navegación principal">
+          <ul class="nav-links-editorial">
+            <li><a href="index.html" class="nav-editorial-link">INICIO</a></li>
+            <li class="nav-dot">/</li>
+            <li><a href="catalogo.html" class="nav-editorial-link">CATÁLOGO</a></li>
+            <li class="nav-dot">/</li>
+            <li><a href="contacto.html" class="nav-editorial-link active">INFORMACIÓN & CONTACTO</a></li>
+          </ul>
+        </nav>
       </div>
 
-      <!-- Header Center: Minimalist Inline Navigation -->
-      <nav class="header-nav-center" aria-label="Navegación principal">
-        <ul class="nav-links-editorial">
-          <li><a href="index.html" class="nav-editorial-link">INICIO</a></li>
-          <li class="nav-dot">/</li>
-          <li><a href="catalogo.html" class="nav-editorial-link">CATÁLOGO</a></li>
-          <li class="nav-dot">/</li>
-          <li><a href="contacto.html" class="nav-editorial-link active">INFORMACIÓN & CONTACTO</a></li>
-        </ul>
-      </nav>
+      <!-- Header Center: Iconic Logo -->
+      <div class="header-logo-center">
+        <a href="index.html" aria-label="EZUST JOYAS Inicio" class="header-logo-link">
+          <img src="assets/logo-official-white.png?v=2" alt="EZUST JOYAS" class="header-logo-img" width="150" height="60">
+        </a>
+      </div>
 
       <!-- Header Right: Currency & Action Icons -->
       <div class="header-actions-right">

@@ -22,7 +22,7 @@
   <meta property="og:image" content="assets/img/hero_bride_gold.jpg">
 
   <!-- Stylesheet (cache-busted for mobile updates) -->
-  <link rel="stylesheet" href="css/style.css?v=20261031_hero_light_v1">
+  <link rel="stylesheet" href="css/style.css?v=20261031_hero_opt1_v2">
   <link rel="icon" type="image/svg+xml" href="assets/logo-symbol.svg">
 </head>
 
@@ -32,23 +32,33 @@
   <header class="site-header transparent-hero-header" id="siteHeader">
     <div class="header-inner container-fluid">
 
-      <!-- Header Left: Logo -->
-      <div class="header-logo-area">
-        <a href="#inicio" aria-label="EZUST JOYAS Inicio" class="header-logo-link">
-          <img src="assets/logo-official-white.png?v=2" alt="EZUST JOYAS" class="header-logo-img" width="140" height="56">
-        </a>
+      <!-- Header Left: Minimalist Navigation & Mobile Menu Trigger -->
+      <div class="header-left-col">
+        <!-- Mobile Menu Toggle (on the left in mobile) -->
+        <button class="header-icon-fine mobile-menu-btn" id="mobileMenuBtn" aria-label="Abrir Menú">
+          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.2" viewBox="0 0 24 24">
+            <line x1="3" y1="7" x2="21" y2="7"></line>
+            <line x1="3" y1="17" x2="21" y2="17"></line>
+          </svg>
+        </button>
+
+        <nav class="header-nav-left" aria-label="Navegación principal">
+          <ul class="nav-links-editorial">
+            <li><a href="#inicio" class="nav-editorial-link active">INICIO</a></li>
+            <li class="nav-dot">/</li>
+            <li><a href="catalogo.html" class="nav-editorial-link">CATÁLOGO</a></li>
+            <li class="nav-dot">/</li>
+            <li><a href="contacto.html" class="nav-editorial-link">INFORMACIÓN & CONTACTO</a></li>
+          </ul>
+        </nav>
       </div>
 
-      <!-- Header Center: Minimalist Inline Navigation -->
-      <nav class="header-nav-center" aria-label="Navegación principal">
-        <ul class="nav-links-editorial">
-          <li><a href="#inicio" class="nav-editorial-link active">INICIO</a></li>
-          <li class="nav-dot">/</li>
-          <li><a href="catalogo.html" class="nav-editorial-link">CATÁLOGO</a></li>
-          <li class="nav-dot">/</li>
-          <li><a href="contacto.html" class="nav-editorial-link">INFORMACIÓN & CONTACTO</a></li>
-        </ul>
-      </nav>
+      <!-- Header Center: Iconic Logo -->
+      <div class="header-logo-center">
+        <a href="#inicio" aria-label="EZUST JOYAS Inicio" class="header-logo-link">
+          <img src="assets/logo-official-white.png?v=2" alt="EZUST JOYAS" class="header-logo-img" width="150" height="60">
+        </a>
+      </div>
 
       <!-- Header Right: Currency & Action Icons -->
       <div class="header-actions-right">
@@ -91,7 +101,6 @@
           <div class="header-search-results-dropdown" id="headerSearchResults"></div>
         </div>
 
-
         <!-- Wishlist Icon -->
         <button class="header-icon-fine" id="wishlistBtn" title="Mis Favoritos" aria-label="Favoritos">
           <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.2" viewBox="0 0 24 24">
@@ -110,14 +119,6 @@
             <path d="M16 10a4 4 0 01-8 0"></path>
           </svg>
           <span class="badge-count-fine" id="cartCount">0</span>
-        </button>
-
-        <!-- Mobile Menu Toggle -->
-        <button class="header-icon-fine mobile-menu-btn" id="mobileMenuBtn" aria-label="Abrir Menú">
-          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.2" viewBox="0 0 24 24">
-            <line x1="3" y1="7" x2="21" y2="7"></line>
-            <line x1="3" y1="17" x2="21" y2="17"></line>
-          </svg>
         </button>
 
       </div>
@@ -144,17 +145,10 @@
     <div class="container hero-cinematic-container">
       <div class="hero-cinematic-content">
 
-        <!-- Central Emblem / Brand Presentation -->
-        <div class="hero-brand-presentation">
-          <div class="hero-brand-logo-frame">
-            <img src="assets/logo-official-gold.png" alt="EZÜST JOYAS" class="hero-brand-logo-img">
-            <div class="hero-logo-halo"></div>
-          </div>
-          <div class="hero-editorial-brand-badge">
-            <span class="badge-sparkle">✦</span>
-            <span class="badge-text">EZÜST JOYAS · ALTA JOYERÍA</span>
-            <span class="badge-sparkle">✦</span>
-          </div>
+        <div class="hero-editorial-brand-badge">
+          <span class="badge-sparkle">✦</span>
+          <span class="badge-text">EZÜST JOYAS · ALTA JOYERÍA</span>
+          <span class="badge-sparkle">✦</span>
         </div>
 
         <h1 class="hero-editorial-headline">
